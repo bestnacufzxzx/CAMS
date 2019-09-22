@@ -48,7 +48,7 @@ export default class Profile extends Component {
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">สร้างข้อมูลอาจารย์</h4>
+                                <h4 class="modal-title">ข้อมูลอาจารย์</h4>
                             </div>
                             <div class="modal-body">
                             {/* &hellip; */}
@@ -56,14 +56,14 @@ export default class Profile extends Component {
                             <form onSubmit={this.profileteacher}>
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group input-group-sm">
                                                 <label>ชื่อ</label>
                                                 <TextInput value={this.state.firstname} inputname="firstname" classes="form-control" placeholder="กรอกชื่อจริง" change={this.onChangeHandle} />
                                                 {/* <input type="text" class="form-control" name="" id="" placeholder="" value=""/> */}
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group input-group-sm">
                                                 <label>นามสกุล</label>
                                                 <TextInput value={this.state.lastname} inputname="lastname" classes="form-control" placeholder="กรอกนามสกุล" change={this.onChangeHandle} />

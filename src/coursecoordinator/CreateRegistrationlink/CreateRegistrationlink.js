@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 
-export default class Timetreatment extends Component {
+export default class CreateRegistrationlink extends Component {
     componentDidMount(){
         const script = document.createElement("script");
         script.src = '../js/Showimportteacher/content.js';
@@ -14,9 +14,9 @@ export default class Timetreatment extends Component {
         return (
    
              <div className="content-wrapper">
-                <Breadcrumb header="แสดงรายนักศึกษา" subheader="" arrow={
+                <Breadcrumb header="แสดงรายการสร้างลิงก์" subheader="" arrow={
                     [
-                        {"icon":"", "title":"นักศึกษา", "link":"#", "active":"active"}
+                        {"icon":"", "title":"สร้างลิงก์", "link":"#", "active":"active"}
                     ]
                 } />
 

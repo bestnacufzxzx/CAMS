@@ -29,7 +29,7 @@ export default class Createimportteacher extends Component {
             username: ''
         }
         const file = [];
-        data.map((v,i) => {
+        data.map((v) => { //v,i)
             let temp  = {...structure};
             temp.name = v[0];
             temp.email = v[1];
