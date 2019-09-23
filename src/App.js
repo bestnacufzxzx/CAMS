@@ -14,25 +14,28 @@ import MenuBar from './parent/Layout/MenuBar';
 // import Footer from './Layout/Footer';
 // import Content from './Layout/Content';
 
+//  page admin
 // import Header from './admin/Layout/Header';
 // import Footer from './admin/Layout/Footer';
 // import Content from './admin/Layout/Content';
 
+// page teacher
 // import Header from './teacher/Layout/Header';
 // import Footer from './teacher/Layout/Footer';
 // import Content from './teacher/Layout/Content';
 
-
+// page coursecoordinator
 // import Header from './coursecoordinator/Layout/Header';
 // import Footer from './coursecoordinator/Layout/Footer';
 // import Content from './coursecoordinator/Layout/Content';
 
-
+//page parent
 import Header from './parent/Layout/Header';
 import Footer from './parent/Layout/Footer';
 import Content from './parent/Layout/Content';
 
 
+// page admin
 // import ShowCourse from './admin/course/ShowCourse';
 // import Updatacourse from './admin/course/Updatacourse';
 // import ImportCourse from './admin/course/ImportCourse';
@@ -52,6 +55,8 @@ import Content from './parent/Layout/Content';
 // import EditAccountTeacher from './admin/AccountTeacher/EditAccountTeacher/EditAccountTeacher';
 // import EditAccountStudent from './admin/AccountStudent/EditAccountStudent/EditAccountStudent';
 
+
+// page teacher
 // import Attendancelocation from './teacher/Attendancelocation/Attendancelocation';
 // import Course from './teacher/Course/Course';
 // import CreateAttendencelocation from './teacher/Attendancelocation/CreateAttendencelocation/CreateAttendencelocation';
@@ -61,15 +66,15 @@ import Content from './parent/Layout/Content';
 // import Profile from './teacher/Profile/Profile';
 // import Showhistorycourse from './teacher/Showhistorycourse/Showhistorycourse';
 
-
+// page coursecoordinator
 // import CreateRegistrationlink from './coursecoordinator/CreateRegistrationlink/CreateRegistrationlink';
 // import Showhistorycourse from './coursecoordinator/Showhistorycourse/Showhistorycourse';
 // import Timetreatment from './coursecoordinator/Timetreatment/Timetreatment';
 // import ShowRegistrationlink from './coursecoordinator/ShowRegistrationlink/ShowRegistrationlink';
 
-
+// page parent
 import ShowStudenthistory from './parent/ShowStudenthistory';
-
+import Studyhistory from './parent/Studyhistory';
 
 
 
@@ -81,6 +86,9 @@ function App() {
       <Header></Header>
       <MenuBar></MenuBar>
         <Route exact path="/" component={Content}/>
+
+
+                                    {/* page admin*/}
           {/* <Route exact path="/admin/ShowCourse" component={ShowCourse} />
           <Route exact path="/admin/course/ImportCourse" component={ImportCourse} />
           <Route exact path="/admin/course/Updatacourse" component={Updatacourse} />
@@ -100,22 +108,29 @@ function App() {
           <Route exact path="/admin/EditAccountTeacher" component={EditAccountTeacher} />
           <Route exact path="/admin/EditAccountStudent" component={EditAccountStudent} /> */}
 
-          {/* <Route exact path="/admin/Attendancelocation" component={Attendancelocation} />
-          <Route exact path="/admin/Course" component={Course} />
-          <Route exact path="/admin/CreateAttendencelocation" component={CreateAttendencelocation} />
-          <Route exact path="/admin/EditCourse" component={EditCourse} />
-          <Route exact path="/admin/CreateCourse" component={CreateCourse} />
-          <Route exact path="/admin/Timetreatment" component={Timetreatment} />
-          <Route exact path="/admin/Profile" component={Profile} /> 
-          <Route exact path="/admin/Showhistorycourse" component={Showhistorycourse} />  */}
-{/* 
-          <Route exact path="/admin/CreateRegistrationlink" component={CreateRegistrationlink} /> 
-          <Route exact path="/admin/Showhistorycourse" component={Showhistorycourse} /> 
-          <Route exact path="/admin/Timetreatment" component={Timetreatment} /> 
-          <Route exact path="/admin/ShowRegistrationlink" component={ShowRegistrationlink} />  */}
 
 
-          <Route exact path="/admin/ShowStudenthistory" component={ShowStudenthistory} /> 
+                                    {/* page teacher*/}
+      {/* <Route exact path="/teacher/Attendancelocation" component={Attendancelocation} />
+          <Route exact path="/teacher/Course" component={Course} />
+          <Route exact path="/teacher/CreateAttendencelocation" component={CreateAttendencelocation} />
+          <Route exact path="/teacher/EditCourse" component={EditCourse} />
+          <Route exact path="/teacher/CreateCourse" component={CreateCourse} />
+          <Route exact path="/teacher/Timetreatment" component={Timetreatment} />
+          <Route exact path="/teacher/Profile" component={Profile} /> 
+          <Route exact path="/teacher/Showhistorycourse" component={Showhistorycourse} />  */}
+
+
+                                {/* page coursecoordinator*/}
+{/*       <Route exact path="/coursecoordinator/CreateRegistrationlink" component={CreateRegistrationlink} /> 
+          <Route exact path="/coursecoordinator/Showhistorycourse" component={Showhistorycourse} /> 
+          <Route exact path="/coursecoordinator/Timetreatment" component={Timetreatment} /> 
+          <Route exact path="/coursecoordinator/ShowRegistrationlink" component={ShowRegistrationlink} />  */}
+
+           
+                                    {/* page parent*/}
+          <Route exact path="/parent/ShowStudenthistory" component={ShowStudenthistory} /> 
+          <Route exact path="/parent/Studyhistory" component={Studyhistory} /> 
 
 
 
