@@ -36,9 +36,9 @@ export default class MenuBar extends Component {
                 {/* sidebar menu: : style can be found in sidebar.less */}
                  <ul className="sidebar-menu" data-widget="tree">
                       <li className="header">เมนู</li>
-                          <li><Link to="/admin/ShowRegistrationlink" active ><i class="fa fa-circle-o"></i> <span>กำหนดอาจารย์ผู้สอน</span></Link></li>
+                          <li><Link to="/coursecoordinator/ShowRegistrationlink" active ><i class="fa fa-circle-o"></i> <span>กำหนดอาจารย์ผู้สอน</span></Link></li>
                        
-                         <li><Link to="/admin/Timetreatment" active ><i class="fa fa-circle-o"></i> <span>ประวิติเข้าเรียน</span></Link></li>
+                         <li><Link to="/coursecoordinator/Timetreatment" active ><i class="fa fa-circle-o"></i> <span>ประวิติเข้าเรียน</span></Link></li>
                                        
                 </ul>
             </section>

@@ -65,7 +65,7 @@ export default class CreateRegistrationlink extends Component {
                                                         <td>swe-112</td>
                                                         <td>oject</td>
                                                         <td> 
-                                                            <Link to="/admin/Showhistorycourse"> <button type="button" className="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button> </Link>
+                                                            <Link to="/coursecoordinator/Showhistorycourse"> <button type="button" className="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button> </Link>
                                                             {/* <Link to="/admin/EditImportstudent"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> </Link> */}
                                                             {/* <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button> */}
                                                         </td>

@@ -16,9 +16,9 @@ export default class ShowStudenthistory extends Component {
         return (
    
              <div className="content-wrapper">
-                <Breadcrumb header="แสดงรายการสร้างลิงก์" subheader="" arrow={
+                <Breadcrumb header="แสดงประวัติการเข้าเรียน" subheader="" arrow={
                     [
-                        {"icon":"", "title":"สร้างลิงก์", "link":"#", "active":"active"}
+                        {"icon":"", "title":"ประวัติการเข้าเรียน", "link":"#", "active":"active"}
                     ]
                 } />
 
@@ -30,18 +30,14 @@ export default class ShowStudenthistory extends Component {
                                 <div class="box-header">                   
                                     <div className="row">
                                         <form action="" method="POST" id="">
-                                            <div className="col-md-3 form-group"></div>
-                                            <div className="col-md-4 form-group">
+                                            <div className="col-md-7 form-group"></div>
+                                            <div className="col-md-3 form-group">
                                                 <input type="text" className="form-control" name="searchText" value="" placeholder="ค้นหา"/>
                                             </div>
-                                            <div className="col-md-3 form-group">
+                                            <div className="col-md-2 form-group">
                                                 <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button> 
                                             </div>
                                         </form>
-
-                                            <div className="col-md-2 form-group">
-                                                <button type="submit" className="btn btn-block btn-info pull-right"  data-toggle="modal" data-target="#modal-default-edit"><i class="fa fa-search" aria-hidden="true"></i> สร้างลิงก์รายวิชา</button> 
-                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -58,24 +54,20 @@ export default class ShowStudenthistory extends Component {
                                                 <thead>
                                                     <tr>
                                                         <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสวิชา</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รายวิชา</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ห้องเรียน</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">อาจารย์ผู้สอน</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">นักศึกษาชั้นปี</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2"aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr role="row" className="odd">
                                                         <td>1</td>
-                                                        <td>swe-112 oject</td>
-                                                        <td>5320</td>
+                                                        <td>swe-112</td>
+                                                        <td>Oject</td>
                                                         <td>อาจารย์</td>
-                                                        <td>2</td>
                                                         <td> 
-                                                            <Link to="/admin/EditImportstudent"></Link>
-                                                            <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default-edit"  ><i className="fa fa-edit"> </i> </button>
-                                                            <button type="button" className="btn btn-danger"><i className="fa fa-trash"> </i> </button>
+                                                            <Link to="/parent/Studyhistory"><button type="button" className="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button></Link>
                                                         </td>
                                                     </tr>
                                                 </tbody>

@@ -38,7 +38,7 @@ export default class Course extends Component {
                                             </div>
                                         </form>
                                         <div className="col-md-2">
-                                            <Link to="/admin/CreateCourse">
+                                            <Link to="/teacher/CreateCourse">
                                                 <button type="button" className="btn btn-block btn-info pull-right"><i class="fa fa-plus" aria-hidden="true"></i> สร้าง</button>
                                             </Link>
                                          </div>
@@ -73,7 +73,7 @@ export default class Course extends Component {
                                                         <td className="sorting_1">10.15 น.</td>
                                                         <td className="sorting_1">12.00 น.</td>
                                                         <td> 
-                                                            <Link to="/admin/EditCourse"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> </Link>
+                                                            <Link to="/teacher/EditCourse"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> </Link>
                                                             <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
                                                         </td>
                                                     </tr>

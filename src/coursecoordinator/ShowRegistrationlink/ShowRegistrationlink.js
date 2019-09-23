@@ -73,7 +73,7 @@ export default class ShowRegistrationlink extends Component {
                                                         <td>อาจารย์</td>
                                                         <td>2</td>
                                                         <td> 
-                                                            <Link to="/admin/EditImportstudent"></Link>
+                                                            <Link to="/coursecoordinator/EditImportstudent"></Link>
                                                             <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default-edit"  ><i className="fa fa-edit"> </i> </button>
                                                             <button type="button" className="btn btn-danger"><i className="fa fa-trash"> </i> </button>
                                                         </td>

@@ -61,7 +61,7 @@ export default class EditCourse extends Component {
                                             <i className="fa fa-arrow-circle-right"></i> บันทึก
                                         </button>
 
-                                        <Link to="/admin/Course"><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link>
+                                        <Link to="/teacher/Course"><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link>
                                         {/* <a href="" className="pull-right btn btn-danger" style="margin-right: 4px;">
                                             <i className="fa fa-arrow-circle-left"></i> กลับ
                                         </a> */}

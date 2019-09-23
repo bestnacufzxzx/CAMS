@@ -30,7 +30,7 @@ export default class Edittimetreatment extends Component {
                                         <div className="col-md-10">
                                         </div>
                                         <div className="col-md-2">
-                                            <Link to="/admin/Createimportstudent">
+                                            <Link to="/teacher/Createimportstudent">
                                                 <button type="button" className="btn btn-block btn-info"><i className="fa fa-plus" aria-hidden="true"></i> นำเข้าข้อมูลนักศึกษา</button>
                                             </Link>
                                         </div>
@@ -59,8 +59,8 @@ export default class Edittimetreatment extends Component {
                                                         <td>1</td>
                                                         <td className="sorting_1">SWE-121</td>
                                                         <td> 
-                                                            <Link to="/admin/EditImportstudent"> <button type="button" className="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button> </Link>
-                                                            <Link to="/admin/EditImportstudent"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> </Link>
+                                                            <Link to="/teacher/EditImportstudent"> <button type="button" className="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button> </Link>
+                                                            <Link to="/teacher/EditImportstudent"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> </Link>
                                                             <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
                                                         </td>
                                                     </tr>

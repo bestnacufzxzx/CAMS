@@ -38,7 +38,7 @@ export default class Attendancelocation extends Component {
                                             </div>
                                         </form>
                                         <div className="col-md-2">
-                                            <Link to="/admin/CreateAttendencelocation">
+                                            <Link to="/teacher/CreateAttendencelocation">
                                                 <button type="button" className="btn btn-block btn-info pull-right"><i class="fa fa-plus" aria-hidden="true"></i> สร้าง</button>
                                             </Link>
                                          </div>

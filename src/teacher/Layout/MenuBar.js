@@ -36,45 +36,6 @@ export default class MenuBar extends Component {
                 {/* sidebar menu: : style can be found in sidebar.less */}
                  <ul className="sidebar-menu" data-widget="tree">
                       <li className="header">เมนู</li>
-                      {/* <li className="treeview">
-                        <Link>
-                          <i className="fa fa-tasks"></i> <span>จัดการรายวิชาและตำแหน่ง</span>
-                          <span className="pull-right-container">
-                            <i className="fa fa-angle-left pull-right"></i>
-                          </span>
-                        </Link>
-                        <ul className="treeview-menu">
-                          <li><Link to="/admin/ShowCourse" ><i class="fa fa-circle-o"></i>จัดการรายวิชา</Link></li>
-                          <li><Link to="/admin/Showlocation"><i class="fa fa-circle-o"></i>จัดการตำแหน่งลงทะเบียนเรียน</Link></li>
-                        </ul>
-                      </li>  
-
-                      <li className="treeview">
-                        <Link>
-                          <i className="fa fa-tasks"></i> <span>จัดการข้อมูลผู้ใช้งาน</span>
-                          <span className="pull-right-container">
-                            <i className="fa fa-angle-left pull-right"></i>
-                          </span>
-                        </Link>
-                        <ul className="treeview-menu">
-                          <li><Link to="/admin/ShowImportteacher" ><i class="fa fa-circle-o"></i>จัดการข้อมูลอาจารย์</Link></li>
-                          <li><Link to="/admin/Showimportstudent"><i class="fa fa-circle-o"></i>จัดการข้อมูลนักศึกษา</Link></li>
-                        </ul>
-                      </li>       
-
-                      <li className="treeview">
-                        <Link>
-                          <i className="fa fa-tasks"></i> <span>จัดการบันชีผู้ใช้งาน</span>
-                          <span className="pull-right-container">
-                            <i className="fa fa-angle-left pull-right"></i>
-                          </span>
-                        </Link>
-                        <ul className="treeview-menu">
-                          <li><Link to="/admin/ShowAccountTeacher" ><i class="fa fa-circle-o"></i>จัดการบันชีอาจารย์</Link></li>
-                          <li><Link to="/admin/ShowAccountStudent"><i class="fa fa-circle-o"></i>จัดการบันชีนักศึกษา</Link></li>
-                        </ul>
-                      </li> */}
-
                       <li className="treeview" active>
                         <Link>
                           <i className="fa fa-tasks"></i> <span>จุดลงเวลาเข้าเรียน</span>
@@ -83,22 +44,12 @@ export default class MenuBar extends Component {
                           </span>
                         </Link>
                         <ul className="treeview-menu">
-                          <li><Link to="/admin/Attendancelocation" ><i class="fa fa-circle-o"></i>จุดลงเวลาเข้าเรียน</Link></li>
-                          <li><Link to="/admin/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li>
+                          <li><Link to="/teacher/Attendancelocation" ><i class="fa fa-circle-o"></i>จุดลงเวลาเข้าเรียน</Link></li>
+                          <li><Link to="/teacher/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li>
                         </ul>
                       </li>  
-                      <li className="treeview" active>
-                        <Link>
-                          <i className="fa fa-tasks"></i> <span>ประวัติเข้าเรียนของนักศึกษา</span>
-                          <span className="pull-right-container">
-                            <i className="fa fa-angle-left pull-right"></i>
-                          </span>
-                        </Link>
-                        <ul className="treeview-menu">
-                          <li><Link to="/admin/Timetreatment" ><i class="fa fa-circle-o"></i>ประวิติเข้าเรียน</Link></li>
+                          <li><Link to="/teacher/Timetreatment" ><i class="fa fa-circle-o"></i> <span>ประวัติเข้าเรียนของนักศึกษา</span></Link></li>
                           {/* <li><Link to="/admin/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
-                        </ul>
-                      </li>                  
                 </ul>
             </section>
             {/* <!-- /.sidebar --> */}
