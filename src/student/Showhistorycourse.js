@@ -28,7 +28,7 @@ export default class Showhistorycourse extends Component {
                                         <div className="col-md-5 form-group">
                                             </div>
                                                 <div className="col-md-2 form-group">
-                                                    <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-file-text"></i> ออกรายงาน</button> 
+                                                    {/* <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-file-text"></i> ออกรายงาน</button>  */}
                                                 </div>
                                         <form action="" method="POST" id="">
                                             <div className="col-md-3 form-group">
