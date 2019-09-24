@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../../components/Breadcrumb';
+import Map from '../../../Map/Map';
 import { Link } from "react-router-dom";
 
 export default class Createlocation extends Component {
@@ -45,7 +46,7 @@ export default class Createlocation extends Component {
                                     <div className="row">
                                         <div className="col-sm-12">
 
-                                            <map></map>
+                                            <Map/>>
 
                                         </div>
                                     </div>
