@@ -12,7 +12,7 @@ export default class Header extends Component {
                     {/* mini logo for sidebar mini 50x50 pixels */}
                     <span className="logo-mini"><b>A</b>LT</span>
                     {/* logo for regular state and mobile devices */}
-                    <span className="logo-lg"><b>อาจารย์ผู้สอน</b></span>
+                    <span className="logo-lg"><b>นักศึกษา</b></span>
                     </a>
                     {/* Header Navbar: style can be found in header.less */}
                     <nav className="navbar navbar-static-top">

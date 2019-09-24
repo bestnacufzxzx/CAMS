@@ -14,7 +14,7 @@ export default class Timetreatment extends Component {
         return (
    
              <div className="content-wrapper">
-                <Breadcrumb header="แสดงรายนักศึกษา" subheader="" arrow={
+                <Breadcrumb header="แสดงรายชื่อวิชา" subheader="" arrow={
                     [
                         {"icon":"", "title":"นักศึกษา", "link":"#", "active":"active"}
                     ]
