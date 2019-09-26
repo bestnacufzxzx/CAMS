@@ -46,7 +46,7 @@ export default class Createlocation extends Component {
                                     <div className="row">
                                         <div className="col-sm-12">
 
-                                            <Map/>>
+                                            <Map/>
 
                                         </div>
                                     </div>

@@ -25,7 +25,8 @@ export default class MapBox extends Component {
                 }}
             >           
             <DrawControl onDrawCreate={onDrawCreate} onDrawUpdate={onDrawUpdate}/>                     
-        </Map>       
+        </Map>
+               
             );
     }
 
