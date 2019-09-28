@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../../components/Breadcrumb';
 import CSVReader from "react-csv-reader";
+import axios from 'axios';
 
 
 // const handleForce = data => {
@@ -23,7 +24,8 @@ export default class Createimportteacher extends Component {
 
     readfileHandle = data => {
         let structure = {
-            name: '',
+            fname: '',
+            lname: '',
             email: '',
             tel: '',
             username: ''
@@ -31,10 +33,11 @@ export default class Createimportteacher extends Component {
         const file = [];
         data.map((v) => { //v,i)
             let temp  = {...structure};
-            temp.name = v[0];
-            temp.email = v[1];
-            temp.tel = v[2];
-            temp.username = v[3];
+            temp.fname = v[0];
+            temp.lname = v[1];
+            temp.email = v[2];
+            temp.tel = v[3];
+            temp.username = v[4];
 
             file.push(temp);
         });
@@ -51,7 +54,13 @@ export default class Createimportteacher extends Component {
     }
 
     importHandle = () => {
-        console.log(this.state.data);
+        axios.post('http://localhost/cams_services/teachers/import', this.state.data)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log("====>",error);
+        });
     }
 
     clearShowFileImport = () => {
@@ -105,7 +114,8 @@ export default class Createimportteacher extends Component {
                                         <thead>
                                             <tr role="row">
                                                 <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
-                                                <th className="col-sm-3" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ-นามสกุล*</th>
+                                                <th className="col-sm-3" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ</th>
+                                                <th className="col-sm-3" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">นามสกุล</th>
                                                 <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">อีเมล์*</th>
                                                 <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">เบอร์โทรภายใน</th>
                                                 <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อผู้ใช้งาน</th>
@@ -116,7 +126,8 @@ export default class Createimportteacher extends Component {
                                             { (this.state.data.length > 0)? this.state.data.map((v, i) => (
                                                 <tr role="row" className="odd">
                                                     <td className="sorting_1">{i+1}</td>
-                                                    <td>{v.name}</td>
+                                                    <td>{v.fname}</td>
+                                                    <td>{v.lname}</td>
                                                     <td>{v.email}</td>
                                                     <td>{v.tel}</td>
                                                     <td>{v.username}</td>
