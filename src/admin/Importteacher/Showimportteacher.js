@@ -3,10 +3,13 @@ import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 import TextInput from '../../components/TextInput';
 // import Button from '../../components/Button';
+import axios from 'axios';
+
 
 export default class Showimportteacher extends Component {
     state = {
         data: [],
+        lecturers:[],
         firstname: '',
         lastname: '',
         email: '',
@@ -18,7 +21,16 @@ export default class Showimportteacher extends Component {
         script.src = '../js/Showimportteacher/content.js';
         script.async = true;
         document.body.appendChild(script);
-    }
+
+        axios.get('http://localhost/cams_services/showimportlecturers/')
+        .then(response => {
+          this.setState({ lecturers: response.data });
+        })
+        .catch(error => {
+          console.log("====>",error.status);
+        });
+
+    };
 
     // personalinformation = data => {
     //     let structure = {
@@ -107,9 +119,10 @@ export default class Showimportteacher extends Component {
                                             <table id="example2" className="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                                 <thead>
                                                     <tr   >
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
+                                                        <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รูปภาพ</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ-นามสกุล</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">นามสกุล</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">อีเมล์</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">เบอร์โทรภายใน</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>
@@ -139,19 +152,23 @@ export default class Showimportteacher extends Component {
                                                 {/* </tbody> */}
 
                                                 <tbody>
-                                                    <tr role="row" className="odd">
-                                                        <td>1</td>
-                                                        <td className="sorting_1">รูป</td>
-                                                        <td className="sorting_1">นาย นำชัย ปู๊นปู๊น</td>
-                                                        <td className="sorting_1">email.com</td>
-                                                        <td className="sorting_1">090</td>
-                                                        <td> 
-                                                            <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default"><i className="fa fa-edit"></i></button>
-                                                            <button type="button" className="btn btn-danger" ><i className="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
+                                                    { this.state.lecturers.map((lecturers, i) => (
+                                                        <tr role="row">
+                                                            <td>{i+1}</td>
+                                                            <td></td>
+                                                            <td className="sorting_1">{lecturers.firstName}</td>
+                                                            <td>{lecturers.lastName}</td>
+                                                            <td>{lecturers.email}</td>
+                                                            <td>{lecturers.phoneNumber}</td>
+                                                            <td> 
+                                                                <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default"><i className="fa fa-edit"></i></button>
+                                                                <button type="button" className="btn btn-danger" ><i className="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    ))
+                                                    }
+
                                                 </tbody>
-                                                
                                             </table>
                                         </div>
                                     </div>

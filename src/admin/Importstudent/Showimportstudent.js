@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 import TextInput from '../../components/TextInput';
+import axios from 'axios';
+
 
 export default class Showimportstudent extends Component {
 
     state = {
         data: [],
-        idstudent:'',
+        student: [],
+        studentID:'',
         firstname: '',
         lastname: '',
         email: '',
@@ -19,6 +22,14 @@ export default class Showimportstudent extends Component {
         script.src = '../js/Showimportteacher/content.js';
         script.async = true;
         document.body.appendChild(script);
+
+        axios.get('http://localhost/cams_services/showimportstudent/')
+        .then(response => {
+          this.setState({ student: response.data });
+        })
+        .catch(error => {
+          console.log("====>",error.status);
+        });
     }
 
     onChangeHandle = (event) => {
@@ -30,7 +41,7 @@ export default class Showimportstudent extends Component {
     savepersonalinformation = () => {
 
         let structure = {
-            idstudent: this.state.idstudent,
+            studentID: this.state.studentID,
             firstname: this.state.firstname,
             lastname: this.state.lastname,
             email: this.state.email,
@@ -82,24 +93,31 @@ export default class Showimportstudent extends Component {
                                                     <tr>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสนักศึกษา</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ-นามสกุล</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">นามสกุล</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">อีเมล์</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">เบอร์โทร</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr role="row" className="odd">
-                                                        <td>1</td>
-                                                        <td className="sorting_1">นาย เรียนดี มีชัย</td>
-                                                        <td className="sorting_1">59111111</td>
-                                                        <td className="sorting_1">email.com</td>
-                                                        <td className="sorting_1">090</td>
+
+                                                { this.state.student.map((student, i) => (
+                                                    <tr role="row">
+                                                    <td>{i+1}</td>
+                                                    <td></td>
+                                                    <td className="sorting_1">{student.studentID}</td>
+                                                    <td>{student.firstName}</td>
+                                                    <td>{student.lastName}</td>
+                                                    <td>{student.email}</td>
+                                                    <td>{student.phoneNumber}</td>
                                                         <td> 
                                                             <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default" ><i className="fa fa-edit"></i></button> 
                                                             <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
                                                         </td>
                                                     </tr>
+                                                    ))
+                                                    }
                                                 </tbody>
                                             </table>
                                         </div>
@@ -127,7 +145,7 @@ export default class Showimportstudent extends Component {
                                         <div class="col-md-4">
                                             <div class="form-group input-group-sm">
                                                 <label>รหัสนักศึกษา</label>
-                                                <TextInput value={this.state.idstudent} inputname="idstudent" classes="form-control" placeholder="รหัสนักศึกษา" change={this.onChangeHandle} />
+                                                <TextInput value={this.state.studentID} inputname="idstudent" classes="form-control" placeholder="รหัสนักศึกษา" change={this.onChangeHandle} />
                                                 {/* <input type="text" class="form-control" name="" id="" placeholder="" value=""/> */}
                                             </div>
                                         </div>
