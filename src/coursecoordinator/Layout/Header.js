@@ -12,7 +12,7 @@ export default class Header extends Component {
                     {/* mini logo for sidebar mini 50x50 pixels */}
                     <span className="logo-mini"><b>A</b>LT</span>
                     {/* logo for regular state and mobile devices */}
-                    <span className="logo-lg"><b>ผู้ประสารรายวิชา</b></span>
+                    <span className="logo-lg"><b>ผู้ประสานรายวิชา</b></span>
                     </a>
                     {/* Header Navbar: style can be found in header.less */}
                     <nav className="navbar navbar-static-top">
@@ -34,7 +34,7 @@ export default class Header extends Component {
                             <li className="user-header">
                                 <img src="/dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
                                 <p>
-                                Alexander Pierce - Web Developer
+                                Tony Stark - Web Developer
                                 <small>Member since Nov. 2012</small>
                                 </p>
                             </li>
