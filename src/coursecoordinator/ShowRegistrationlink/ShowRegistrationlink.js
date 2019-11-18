@@ -30,7 +30,6 @@ export default class ShowRegistrationlink extends Component {
                                 <div class="box-header">                   
                                     <div className="row">
                                         <form action="" method="POST" id="">
-                                            <div className="col-md-3 form-group"></div>
                                             <div className="col-md-4 form-group">
                                                 <input type="text" className="form-control" name="searchText" value="" placeholder="ค้นหา"/>
                                             </div>
@@ -38,9 +37,12 @@ export default class ShowRegistrationlink extends Component {
                                                 <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button> 
                                             </div>
                                         </form>
-
                                             <div className="col-md-2 form-group">
                                                 <button type="submit" className="btn btn-block btn-info pull-right"  data-toggle="modal" data-target="#modal-default-edit"><i class="fa fa-search" aria-hidden="true"></i> สร้างลิงก์รายวิชา</button> 
+                            
+                                            </div>
+                                            <div className="col-md-3 form-group">
+                                                <button type="submit" className="btn btn-block btn-info pull-left"  data-toggle="modal" data-target="#modal-default-edit"><i class="fa fa-folder" aria-hidden="true"></i> เปิดรายวิชา</button>            
                                             </div>
                                     </div>
                                 </div>
