@@ -3,6 +3,8 @@ import Breadcrumb from '../components/Breadcrumb';
 // import { Link } from "react-router-dom";
 // import TextInput from '../components/TextInput';
 import axios from 'axios';
+import Cameras from '../student/Cameras';
+import Button from '../components/Button';
 
 export default class Registercourses extends Component {
 
@@ -12,16 +14,19 @@ export default class Registercourses extends Component {
         // latitude: '',
         // longitude: ''
     }
-   
-    // rendercoursetable(){
 
+    // rendercammera(){
+    //     return(
+    //         <Cameras/>
+    //     );
     // }
+
     renderUserButton(time){
 
         if(time == null){
             {
                 return (
-                    <button type="button" className="btn btn-block btn-danger btn-sm"> ไม่มีเรียนในวันนี้ </button>
+                    <button type="button" className="btn btn-block btn-danger btn-sm" > ไม่มีเรียนในวันนี้ </button>
                         // "หมดเวลาบันทึกเข้าเรียน"
                 );
             }
@@ -37,7 +42,8 @@ export default class Registercourses extends Component {
             // let same = d1.getTime() === d2.getTime();
             if ( d1.getTime() >= d2.getTime()) {
                 return (
-                    <button type="button" className="btn btn-block btn-primary btn-sm" data-toggle="modal" data-target="#modal-default"><i class="fa fa-map-marker" aria-hidden="true"></i> บันทึกเวลาเรียน</button>
+                    // <button variant="primary" onClick={handleShow}> </button>
+                    <button type="button" className="btn btn-block btn-primary btn-sm" data-toggle="modal" data-target="#modal-default"><i class="fa fa-map-marker" aria-hidden="true" width='50%'></i> บันทึกเวลาเรียน</button>
                 );
             }else{
                 return (
@@ -47,48 +53,7 @@ export default class Registercourses extends Component {
             }
         }
 
-        // function addZero(i){
-        //     if (i < 10) {
-        //       i = "0" + i;
-        //     }
-        //     return i;
-        //   }
-
-        // var d = new Date();
-        // var days = ["0","1","2","3","4","5","6"];  //["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-        // var day = days[d.getDay()];
-        // var x = document.getElementById("demo");
-        // var h = addZero(d.getHours());
-        // var m = addZero(d.getMinutes());
-        // var s = addZero(d.getSeconds());
-        // x = h + ":" + m + ":" + s;
-
-        // let d1 = (x);
-        // let d2 = (starttime);
-        // let d3 = (endtime);
-        // let date = (daypresent);
-        
-        
-        // console.log(d1);
-        // console.log(d2);
-        // console.log(d3);
-        // console.log(day);
-        // console.log(daypresent);
-
-        // let d1 = new Date();
-        // let d2 = new Date(starttime);
-        // let same = d1.getTime() === d2.getTime();
-        // if ( d1 >= d2 && d1 <= d3 && days == date) {
-        //   return (
-
-        //     <button type="button" className="btn btn-block btn-primary btn-sm" data-toggle="modal" data-target="#modal-default"><i class="fa fa-map-marker" aria-hidden="true"></i> บันทึกเวลาเรียน</button>
-        //     );
-        // }else{
-        //     return (
-        //         <button type="button" className="btn btn-block btn-danger btn-sm"> หมดเวลาบันทึกเข้าเรียน</button>
-        //             // "หมดเวลาบันทึกเข้าเรียน"
-        //     );
-        // }
+       
       }
       componentWillMount(){
         localStorage.setItem("user_ID", '59142901');
@@ -110,6 +75,20 @@ export default class Registercourses extends Component {
         });
 
     }
+
+    // handleSubmit = event => {
+    //     event.preventDefault();
+    
+    //     const user = {
+    //       name: this.state.name
+    //     };
+    
+    //     axios.post('http://localhost/cams_server/api/checknamex/getCheckname?courseID', { courseID })
+    //       .then(res => {
+    //         console.log(res);
+    //         console.log(res.data);
+    //       })
+    //   }
 
     render() {
         // console.log(renderUserButton(checkname.startdate))
@@ -146,7 +125,7 @@ export default class Registercourses extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="box box-primary">
-                                <div className="box-body">
+                                <div className="box-body table-responsive">
                                     <br />
                                     <div className="row">
                                         <div className="col-sm-12">
@@ -156,7 +135,6 @@ export default class Registercourses extends Component {
                                                         <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">คาบเรียน</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสวิชา</th>
                                                         <th className="col-sm-3" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อรายวิชา</th>
-                                                        {/* <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">วันเรียน</th> */}
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">วันที่ลงชื่อ</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">สถานะ</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">บันทึกเวลาเข้าเรียน</th>
@@ -189,42 +167,7 @@ export default class Registercourses extends Component {
                     </div>
                 </div>
                 <div>
-                    <div class="modal fade" id="modal-default">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">บันทึกลงเวลาเข้าเรียน</h4>
-                            </div>
-                            <div class="modal-body">
-                            {/* &hellip; */}
-
-                            <form onSubmit={this.createstudentinformation}>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                            {/* <Map/>  
-                                            <div>
-                                                <h5>latitude</h5>
-                                                <input type="text" value={latitude} />
-                                                <h5>longitude</h5>
-                                                <input type="text" value={longitude} />
-                                            </div> */}
-                                    </div>
-                                </div> 
-                            </form>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal"> ยกเลิก </button>
-                                <button type="button" class="btn btn-primary" onClick={this.savepersonalinformation}> บันทึก </button>
-                            </div>
-                            </div>
-                            {/* <!-- /.modal-content --> */}
-                        </div>
-                        {/* <!-- /.modal-dialog --> */}
-                    </div>
-                    {/* <!-- /.modal --> */}
+                    <Cameras/>
                 </div>
             </div>
      

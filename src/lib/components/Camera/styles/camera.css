@@ -4,11 +4,15 @@
 }
 
 .react-html5-camera-photo > video {
-  width: 768px;
+  width: 560px;
+  /* height: 800px; */
+  /* 768px */
 }
 
 .react-html5-camera-photo > img {
-  width: 768px;
+  width: 560px;
+  /* height: 800px; */
+  /* 768px */
 }
 
 .react-html5-camera-photo > .display-error {
