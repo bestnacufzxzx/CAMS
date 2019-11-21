@@ -37,17 +37,18 @@ export default class MenuBar extends Component {
                  <ul className="sidebar-menu" data-widget="tree">
                       <li className="header">เมนู</li>
                       <li className="treeview" active>
-                        <Link>
+                        {/* <Link>
                           <i className="fa fa-tasks"></i> <span>ลงทะเบียนเข้าเรียน</span>
                           <span className="pull-right-container">
                             <i className="fa fa-angle-left pull-right"></i>
                           </span>
-                        </Link>
-                        <ul className="treeview-menu">
-                          <li><Link to="/student/Registercourses" ><i class="fa fa-circle-o"></i>ลงทะเบียนเข้าเรียน</Link></li>
+                        </Link> */}
+                        {/* <ul className="treeview-menu"> */}
+                          {/* <li><Link to="/student/Registercourses" ><i class="fa fa-circle-o"></i>ลงทะเบียนเข้าเรียน</Link></li> */}
                           {/* <li><Link to="/teacher/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
-                        </ul>
+                        {/* </ul> */}
                       </li>  
+                          <li><Link to="/student/Registercourses" ><i class="fa fa-circle-o"></i><span>ลงทะเบียนเข้าเรียน</span></Link></li>
                           <li><Link to="/student/Timetreatment" ><i class="fa fa-circle-o"></i> <span>ประวัติเข้าเรียนของนักศึกษา</span></Link></li>
                           {/* <li><Link to="/admin/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
                 </ul>

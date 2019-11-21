@@ -37,17 +37,19 @@ export default class MenuBar extends Component {
                  <ul className="sidebar-menu" data-widget="tree">
                       <li className="header">เมนู</li>
                       <li className="treeview" active>
-                        <Link>
+                        {/* <Link>
                           <i className="fa fa-tasks"></i> <span>จุดลงเวลาเข้าเรียน</span>
                           <span className="pull-right-container">
                             <i className="fa fa-angle-left pull-right"></i>
                           </span>
-                        </Link>
+                        </Link> */}
                         <ul className="treeview-menu">
-                          <li><Link to="/teacher/Attendancelocation" ><i class="fa fa-circle-o"></i>จุดลงเวลาเข้าเรียน</Link></li>
-                          <li><Link to="/teacher/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li>
+                          {/* <li><Link to="/teacher/Attendancelocation" ><i class="fa fa-circle-o"></i>จุดลงเวลาเข้าเรียน</Link></li>
+                          <li><Link to="/teacher/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
                         </ul>
                       </li>  
+                          <li><Link to="/teacher/Attendancelocation"><i class="fa fa-circle-o"></i>จุดลงเวลาเข้าเรียน</Link></li>
+                          <li><Link to="/teacher/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li>
                           <li><Link to="/teacher/Timetreatment" ><i class="fa fa-circle-o"></i> <span>ประวัติเข้าเรียนของนักศึกษา</span></Link></li>
                           {/* <li><Link to="/admin/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
                 </ul>

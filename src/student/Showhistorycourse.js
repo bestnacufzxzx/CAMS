@@ -38,13 +38,6 @@ export default class Showhistorycourse extends Component {
                                                 <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button> 
                                             </div>
                                         </form>
-                                        {/* <div className="col-md-2">
-
-                                            <Link to="/admin/CreateAttendencelocation">
-                                                <button type="button" className="btn btn-block btn-info pull-right"><i class="fa fa-plus" aria-hidden="true"></i> สร้าง</button>
-                                            </Link>
-
-                                         </div> */}
                                     </div>
                                 </div>
                             </div>
