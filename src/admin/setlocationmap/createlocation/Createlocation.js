@@ -1,12 +1,18 @@
 import React, { Component,state } from 'react'
 import Breadcrumb from '../../../components/Breadcrumb';
 import Map from '../../../Map/Map';
+import {features} from '../../../Map/Map';
 import { Link } from "react-router-dom";
+import { Feature } from 'react-mapbox-gl';
 
 
 export default class Createlocation extends Component {
 
-    pigud
+
+    handleClick = (features) => {
+        console.log(features);
+      }
+
     render() {
         return (
             
@@ -54,7 +60,7 @@ export default class Createlocation extends Component {
                                 <br />
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            {state.features}
+                                        <button type="button" onClick={this.handleClick} className="btn btn-block btn-info">แสดงพิกัด </button>
                                         </div>
                                     </div>
                                 </div>
