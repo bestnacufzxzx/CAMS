@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
 import Camera, { FACING_MODES } from '../lib';
 import './reset.css';
+import axios from 'axios';
+// import TextInput from '../components/TextInput';
 
-class App extends Component {
-  onTakePhoto (dataUri) {
-    // Do stuff with the photo...
-    console.log('takePhoto');
+
+export default class AppMinimumUsage extends Component {
+
+  // onTakePhoto (dataUri) {
+  //   // Do stuff with the photo...
+  //   console.log(dataUri);
+  // }
+    state = {
+      picture : "",
   }
+
+    onTakePhoto = dataUri => {
+        let courseID = localStorage.getItem("courseID");
+        axios.post('http://localhost/cams_server/api/checknamex/getCheckname?courseID', { courseID })
+        .then(res => {
+          this.setState({ picture: res.data });
+        })
+        .catch(error => {
+          // console.log("====>",error.status);
+          console.log(dataUri);
+        });
+      }
 
   render () {
     return (
@@ -15,9 +34,9 @@ class App extends Component {
           onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
           idealFacingMode = {FACING_MODES.ENVIRONMENT}
         />
+
       </div>
     );
   }
 }
 
-export default App;
