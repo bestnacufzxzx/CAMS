@@ -1,28 +1,26 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../components/Breadcrumb';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import TextInput from '../components/TextInput';
 import axios from 'axios';
-import Cameras from '../student/Cameras';
-import Button from '../components/Button';
-
 export default class Registercourses extends Component {
 
     state = {
         checknames : [],
-        // courseID: "",
-        // latitude: '',
-        // longitude: ''
+        show: false
+
     }
 
-    // rendercammera(){
-    //     return(
-    //         <Cameras/>
-    //     );
-    // }
+    handleModal = () => {
+        this.setState({show:true});
+        console.log(this.state.show);
+    }
 
     renderUserButton(time){
 
+        // let classid = new (classID);
+        
+        
         if(time == null){
             {
                 return (
@@ -31,19 +29,19 @@ export default class Registercourses extends Component {
                 );
             }
         }else{
-
             let d1 = new Date();
             let d2 = new Date(time.startdate+' '+time.starttime);
-            let d3 = new Date(time.startdate+' '+time.starttime);
-            console.log(d1);
-            console.log(time);
-            console.log(time);
-            // console.log(d2);
-            // let same = d1.getTime() === d2.getTime();
+            let classID = (time.classID);
+
+            console.log(d2);
+            // console.log(classID);
+
             if ( d1.getTime() >= d2.getTime()) {
                 return (
-                    // <button variant="primary" onClick={handleShow}> </button>
-                    <button type="button" className="btn btn-block btn-primary btn-sm" data-toggle="modal" data-target="#modal-default"><i class="fa fa-map-marker" aria-hidden="true" width='50%'></i> บันทึกเวลาเรียน</button>
+                    
+                    <Link to={'/student/Cameras/'+classID}>
+                        <button type="button" className="btn btn-block btn-primary btn-sm" ><i class="fa fa-map-marker" aria-hidden="true"></i> บันทึกเวลาเรียน</button>
+                    </Link>
                 );
             }else{
                 return (
@@ -76,22 +74,9 @@ export default class Registercourses extends Component {
 
     }
 
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    
-    //     const user = {
-    //       name: this.state.name
-    //     };
-    
-    //     axios.post('http://localhost/cams_server/api/checknamex/getCheckname?courseID', { courseID })
-    //       .then(res => {
-    //         console.log(res);
-    //         console.log(res.data);
-    //       })
-    //   }
-
     render() {
-        // console.log(renderUserButton(checkname.startdate))
+        console.log(this.state.show)
+        console.log(this)
         return (
 
              <div className="content-wrapper">
@@ -147,8 +132,8 @@ export default class Registercourses extends Component {
                                                             <td>{checkname.lesson}</td>
                                                             <td>{checkname.data.courseCode}</td>
                                                             <td>{checkname.data.courseName}</td>
-                                                            {/* <td>{checkname.date}</td> */}
-                                                            <td>{checkname.data.startdate}</td>
+                                                            {/* <td>{checkname.time}</td> */}
+                                                            <td>{checkname.classID}</td>
                                                             {/* <td>{checkname.studentID}</td> */}
                                                             <td>{checkname.status}</td>
                                                             <td> 
@@ -166,11 +151,17 @@ export default class Registercourses extends Component {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <Cameras/>
-                </div>
+                {/* { (this.state.show)? <div>
+                    <Cameras />
+                </div>: <div>
+                   
+                </div>} */}
+                
             </div>
      
+    //  <Link to="/admin/course/ImportCourse">
+    //                                             <button type="button" className="btn btn-block btn-info"><i className="fa fa-plus" aria-hidden="true"></i> นำเข้าข้อมูล</button>
+    //                                         </Link>
         )
     }
 }
