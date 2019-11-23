@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../../components/Breadcrumb';
+import Map from '../../../Map/Map';
 // import { Link } from "react-router-dom";
 
 export default class CreateAttendencelocation extends Component {
@@ -19,18 +20,21 @@ export default class CreateAttendencelocation extends Component {
                         {"icon":"", "title":"นักศึกษา", "link":"#", "active":"active"}
                     ]
                 } />
-
-                
+             
                 <div className="content body">
                     <div className="row">
                         <div className="col-md-12">
                             <div className="box box-primary">
                                 <div className="box-body">
                                     <br />
-                                    <div className="row">
+                                    <div className="row">                                 
+                                        <Map />
+                                    </div>
+                                </div>
+                                <div className="box-body">
+                                    <br />
+                                    <div className="row">                                 
                                         
-
-
                                     </div>
                                 </div>
                             </div>

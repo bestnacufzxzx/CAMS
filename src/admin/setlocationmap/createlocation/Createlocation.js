@@ -1,7 +1,6 @@
 import React, { Component,state } from 'react'
 import Breadcrumb from '../../../components/Breadcrumb';
 import Map from '../../../Map/Map';
-import {features} from '../../../Map/Map';
 import { Link } from "react-router-dom";
 import { Feature } from 'react-mapbox-gl';
 
