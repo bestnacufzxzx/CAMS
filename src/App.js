@@ -3,9 +3,9 @@ import './App.css';
 import { BrowserRouter, Route} from "react-router-dom";
 // import MenuBar from './Layout/MenuBar';
 // import MenuBar from './admin/Layout/MenuBar';
-// import MenuBar from './teacher/Layout/MenuBar';
+import MenuBar from './teacher/Layout/MenuBar';
 // import MenuBar from './coursecoordinator/Layout/MenuBar';
-import MenuBar from './student/Layout/MenuBar';
+// import MenuBar from './student/Layout/MenuBar';
 // import MenuBar from './parent/Layout/MenuBar';
 
 
@@ -21,9 +21,9 @@ import MenuBar from './student/Layout/MenuBar';
 // import Content from './admin/Layout/Content';
 
 // page teacher
-// import Header from './teacher/Layout/Header';
-// import Footer from './teacher/Layout/Footer';
-// import Content from './teacher/Layout/Content';
+import Header from './teacher/Layout/Header';
+import Footer from './teacher/Layout/Footer';
+import Content from './teacher/Layout/Content';
 
 // page coursecoordinator
 // import Header from './coursecoordinator/Layout/Header';
@@ -31,9 +31,9 @@ import MenuBar from './student/Layout/MenuBar';
 // import Content from './coursecoordinator/Layout/Content';
 
 //page student
-import Header from './student/Layout/Header';
-import Footer from './student/Layout/Footer';
-import Content from './student/Layout/Content';
+// import Header from './student/Layout/Header';
+// import Footer from './student/Layout/Footer';
+// import Content from './student/Layout/Content';
 
 //page parent
 // import Header from './parent/Layout/Header';
@@ -63,14 +63,14 @@ import Content from './student/Layout/Content';
 
 
 // page teacher
-// import Attendancelocation from './teacher/Attendancelocation/Attendancelocation';
-// import Course from './teacher/Course/Course';
-// import CreateAttendencelocation from './teacher/Attendancelocation/CreateAttendencelocation/CreateAttendencelocation';
-// import EditCourse from './teacher/Course/EditCourse/EditCourse';
-// import CreateCourse from './teacher/Course/CreateCourse/CreateCourse';
-// import Timetreatment from './teacher/Timetreatment/Timetreatment';
-// import Profile from './teacher/Profile/Profile';
-// import Showhistorycourse from './teacher/Showhistorycourse/Showhistorycourse';
+import Attendancelocation from './teacher/Attendancelocation/Attendancelocation';
+import Course from './teacher/Course/Course';
+import CreateAttendencelocation from './teacher/Attendancelocation/CreateAttendencelocation/CreateAttendencelocation';
+import EditCourse from './teacher/Course/EditCourse/EditCourse';
+import CreateCourse from './teacher/Course/CreateCourse/CreateCourse';
+import Timetreatment from './teacher/Timetreatment/Timetreatment';
+import Profile from './teacher/Profile/Profile';
+import Showhistorycourse from './teacher/Showhistorycourse/Showhistorycourse';
 
 // page coursecoordinator
 // import CreateRegistrationlink from './coursecoordinator/CreateRegistrationlink/CreateRegistrationlink';
@@ -79,11 +79,11 @@ import Content from './student/Layout/Content';
 // import ShowRegistrationlink from './coursecoordinator/ShowRegistrationlink/ShowRegistrationlink';
 
 // page student
-import Registercourses from './student/Registercourses';
-import Profile from './student/Profile/Profile';
-import Camera from './student/Camera';
-import Showhistorycourse from './student/Showhistorycourse';
-import Timetreatment from './student/Timetreatment';
+// import Registercourses from './student/Registercourses';
+// import Profile from './student/Profile/Profile';
+// import Camera from './student/Camera';
+// import Showhistorycourse from './student/Showhistorycourse';
+// import Timetreatment from './student/Timetreatment';
 
 // page parent
 // import ShowStudenthistory from './parent/ShowStudenthistory';
@@ -99,7 +99,6 @@ function App() {
       <Header></Header>
       <MenuBar></MenuBar>
         <Route exact path="/" component={Content}/>
-
 
                                     {/* page admin*/}
           {/* <Route exact path="/admin/ShowCourse" component={ShowCourse} />
@@ -124,14 +123,14 @@ function App() {
 
 
                                     {/* page teacher*/}
-          {/* <Route exact path="/teacher/Attendancelocation" component={Attendancelocation} />
+          <Route exact path="/teacher/Attendancelocation" component={Attendancelocation} />
           <Route exact path="/teacher/Course" component={Course} />
           <Route exact path="/teacher/CreateAttendencelocation" component={CreateAttendencelocation} />
           <Route exact path="/teacher/EditCourse" component={EditCourse} />
           <Route exact path="/teacher/CreateCourse" component={CreateCourse} />
           <Route exact path="/teacher/Timetreatment" component={Timetreatment} />
           <Route exact path="/teacher/Profile" component={Profile} /> 
-          <Route exact path="/teacher/Showhistorycourse" component={Showhistorycourse} />  */}
+          <Route exact path="/teacher/Showhistorycourse" component={Showhistorycourse} /> 
 
 
                                 {/* page coursecoordinator*/}
@@ -144,11 +143,11 @@ function App() {
 
                                     {/* page student */}
 
-           <Route exact path="/student/Registercourses" component={Registercourses} /> 
+           {/* <Route exact path="/student/Registercourses" component={Registercourses} /> 
            <Route exact path="/student/Profile" component={Profile} /> 
            <Route exact path="/student/Camera" component={Camera} /> 
            <Route exact path="/student/Showhistorycourse" component={Showhistorycourse} /> 
-           <Route exact path="/student/Timetreatment" component={Timetreatment} /> 
+           <Route exact path="/student/Timetreatment" component={Timetreatment} />  */}
 
 
                                     {/* page parent*/}

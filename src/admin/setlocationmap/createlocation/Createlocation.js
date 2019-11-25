@@ -1,20 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component,state } from 'react'
 import Breadcrumb from '../../../components/Breadcrumb';
 import Map from '../../../Map/Map';
 import { Link } from "react-router-dom";
+import { Feature } from 'react-mapbox-gl';
+
 
 export default class Createlocation extends Component {
 
+
+    handleClick = (features) => {
+        console.log(features);
+      }
+
     render() {
         return (
-
+            
             <div className="content-wrapper">
                 <Breadcrumb header="สถานที่เรียน" subheader="" arrow={
                     [
                         { "icon": "fa fa-map-marker", "title": "แผนที่สถานที่เรียน", "link": "#", "active": "active" }
                     ]
                 } />
-
 
                 <div className="content body">
                     <div className="box theader-search-sky">
@@ -45,9 +51,15 @@ export default class Createlocation extends Component {
                                     <br />
                                     <div className="row">
                                         <div className="col-sm-12">
-
                                             <Map/>
-
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="box-body">
+                                <br />
+                                    <div className="row">
+                                        <div className="col-sm-12">
+                                        <button type="button" onClick={this.handleClick} className="btn btn-block btn-info">แสดงพิกัด </button>
                                         </div>
                                     </div>
                                 </div>
