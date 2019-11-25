@@ -22,7 +22,6 @@ export default class ShowCourse extends Component {
         });
     }
 
-
     render(){
         return(
             <div className="content-wrapper">
@@ -68,7 +67,7 @@ export default class ShowCourse extends Component {
                                                         <th className="" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ.</th>
                                                         <th className="sorting_asc" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสวิชา</th>
                                                         <th className="sorting" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CourseName: activate to sort column ascending">ชื่อรายวิชา</th>
-                                                        <th className="sorting" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="Term: activate to sort column ascending">หน่วยกิต</th>
+                                                        {/* <th className="sorting" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="Term: activate to sort column ascending">หน่วยกิต</th> */}
                                                         {/* <th className="sorting" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th> */}
                                                         <th className="" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>
                                                     </tr>
@@ -79,10 +78,11 @@ export default class ShowCourse extends Component {
                                                             <td>{i+1}</td>
                                                             <td className="sorting_1">{course.courseCode}</td>
                                                             <td>{course.courseName}</td>
-                                                            <td>1</td>
+                                                            {/* <td>{course.courseCredits}</td> */}
                                                             {/* <td>1.7</td> */}
                                                             <td> 
-                                                                <Link to="/course/updata"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button></Link> <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
+                                                                
+                                                                <Link to={'/admin/course/Updatacourse/'+course.courseID} ><button type="button" className="btn btn-warning" onClick={this.updateCourse} ><i className="fa fa-edit"></i></button></Link> <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
                                                             </td>
                                                         </tr>
                                                     ))}
