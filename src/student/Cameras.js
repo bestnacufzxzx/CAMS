@@ -1,58 +1,67 @@
 import React, { Component } from 'react';
-// import ReactDOM from "react-dom";
-// import Modal from "../components/Modal";
 import Breadcrumb from '../components/Breadcrumb';
-import Camera from "../demo/AppMinimumUsage"
-import Location from '../location/location';
-// import Registercourses from './Registercourses';
-// import queryString from 'query-string';
-// import ReactDOM from "react-dom";
-// import { Button, } from 'react-bootstrap';
-// import queryString from 'query-string';
+import Camera, { FACING_MODES } from '../lib';
+import axios from 'axios';
 
  
 export default class Cameras extends Component {
     
-    constructor() {
-        super()
-        this.state = {
-            Camera : <Camera/>,
-            // Location : <Location/>,
+        state = {
             latitude: '',
-            longitude: ''
+            longitude: '',
+            classID: null
         }
-        this.getMyLocation = this.getMyLocation.bind(this)
-    }
 
-    componentDidMount() {
-        this.getMyLocation()
-      }
-    
-      getMyLocation() {
-        const location = window.navigator && window.navigator.geolocation
-        
-        if (location) {
-          location.getCurrentPosition((position) => {
-            this.setState({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-            })
-          }, (error) => {
-            this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
-          })
+        componentWillMount = () =>{
+            this.setState({classID: this.props.match.params.classID})
+            console.log(this.state.classID)
         }
-    
-      }
-    
+
+        componentDidMount = () => {
+            this.getMyLocation()
+          }
+        
+          getMyLocation = () => {
+            const location = window.navigator && window.navigator.geolocation
+            
+            if (location) {
+              location.getCurrentPosition((position) => {
+                this.setState({
+                  latitude: position.coords.latitude,
+                  longitude: position.coords.longitude,
+                })
+              }, (error) => {
+                this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
+              })
+            }
+        
+          }
+
+          onTakePhoto = picture => {
+            // let classID = classID;
+            let user_ID = localStorage.getItem("user_ID");
+            console.log(user_ID);
+            axios.post('http://localhost/cams_server/api/Checknamestudent/postCheckname', { classID: this.state.classID,picture:picture,studentID:user_ID }  )
+            .then(res => {
+            //   this.setState({ picture: res.data });
+            })
+            .catch(error => {
+              console.log("====>",error.status);
+            //   console.log(dataUri);
+            //   console.log(this.props.classid);
+            });
+          }
 
     render() {
-        const { latitude, longitude } = this.state
-        let id = this.props.match.params.id;
+        // let props = this.props;
+        // console.log('22222',this);
 
-        console.log(id);
-        console.log(latitude);
-        console.log(longitude);
- 
+        // const { latitude, longitude } = this.state
+        // const dataUri = this.props.dataUri;
+        // const id = this.props.match.params.classID;
+        // console.log(id);
+        // console.log(latitude);
+        // console.log(longitude);
 
         return (
    
@@ -65,23 +74,26 @@ export default class Cameras extends Component {
 
             
             <div className="content body">
-                {/* <div class="row">
+                <div class="row">
                     <div class="col-md-12">
                         <div class="box theader-search-sky">
                             <div class="box-header">                   
-                                {latitude} , {longitude}
+                                {/* {latitude} , {longitude} */}
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
                 <div className="row">
                     <div className="col-md-12">
-                        {/* <div className="box box-primary">
+                        <div className="box box-primary">
                             <div className="box-body">
-                                <br /> */}
-                                    {this.state.Camera}
-                            {/* </div>
-                        </div> */}
+                                <br />
+                                <Camera
+                                onTakePhoto = { (picture) => { this.onTakePhoto(picture); } }
+                                idealFacingMode = {FACING_MODES.ENVIRONMENT}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,14 +1,39 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../components/Breadcrumb';
 import { Link } from "react-router-dom";
+import axios from 'axios';
+
 
 export default class Timetreatment extends Component {
-    // componentDidMount(){
-    //     const script = document.createElement("script");
-    //     script.src = '../js/Showimportteacher/content.js';
-    //     script.async = true;
-    //     document.body.appendChild(script);
+
+    state = {
+        courses : [],
+        // show: false
+
+    }
+    // renderButton(time){
+    //     let historyclassID = (time.classID); //+historyclassID
+    //     return (
+    //         <Link to={'/student/Showhistorycourse/'+historyclassID}> 
+    //             <button type="button" className="btn btn-block btn-primary btn-sm" >ประวัติการเข้าเรียน</button>
+    //         </Link>
+    //     );
     // }
+
+    // componentWillMount(){
+    //     localStorage.setItem("user_ID", '59142901');
+    //     }
+
+    componentDidMount(){
+        let user_ID = localStorage.getItem("user_ID");
+        axios.get('http://localhost/cams_server/api/checknamestudent/getCourseByUserId?user_ID='+user_ID)
+        .then(res => {
+        this.setState({ courses: res.data });
+        })
+        .catch(error => {
+        console.log("====>",error.status);
+        });
+    }
 
     render() {
         return (
@@ -60,16 +85,16 @@ export default class Timetreatment extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr role="row" className="odd">
-                                                        <td>1</td>
-                                                        <td>swe-112</td>
-                                                        <td>oject</td>
-                                                        <td> 
-                                                            <Link to="/student/Showhistorycourse"> <button type="button" className="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button> </Link>
-                                                            {/* <Link to="/admin/EditImportstudent"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> </Link> */}
-                                                            {/* <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button> */}
-                                                        </td>
-                                                    </tr>
+                                                    { this.state.courses.map((course, i) => (
+                                                            <tr role="row">
+                                                                <td>{i+1}</td>
+                                                                <td>{course.data.courseCode}</td>
+                                                                <td>{course.data.courseName}</td>
+                                                                <td> 
+                                                                  {/* { this.renderButton(course.time) } */}
+                                                                </td>
+                                                            </tr>
+                                                        ))}
                                                 </tbody>
                                             </table>
                                         </div>

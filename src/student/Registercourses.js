@@ -11,10 +11,10 @@ export default class Registercourses extends Component {
 
     }
 
-    handleModal = () => {
-        this.setState({show:true});
-        console.log(this.state.show);
-    }
+    // handleModal = () => {
+    //     this.setState({show:true});
+    //     console.log(this.state.show);
+    // }
 
     renderUserButton(time){
 
@@ -33,7 +33,7 @@ export default class Registercourses extends Component {
             let d2 = new Date(time.startdate+' '+time.starttime);
             let classID = (time.classID);
 
-            console.log(d2);
+            // console.log(d2);
             // console.log(classID);
 
             if ( d1.getTime() >= d2.getTime()) {
@@ -117,11 +117,11 @@ export default class Registercourses extends Component {
                                             <table id="example2" className="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                                 <thead>
                                                     <tr>
-                                                        <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">คาบเรียน</th>
+                                                        {/* <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">คาบเรียน</th> */}
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสวิชา</th>
                                                         <th className="col-sm-3" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อรายวิชา</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">วันที่ลงชื่อ</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">สถานะ</th>
+                                                        {/* <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">วันที่ลงชื่อ</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">สถานะ</th> */}
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">บันทึกเวลาเข้าเรียน</th>
                                                     </tr>
                                                 </thead>
@@ -129,13 +129,14 @@ export default class Registercourses extends Component {
                                                 <tbody>
                                                     { this.state.checknames.map((checkname, i) => (
                                                         <tr role="row">
-                                                            <td>{checkname.lesson}</td>
+                                                            {/* <td>{checkname.lesson}</td> */}
                                                             <td>{checkname.data.courseCode}</td>
                                                             <td>{checkname.data.courseName}</td>
                                                             {/* <td>{checkname.time}</td> */}
-                                                            <td>{checkname.classID}</td>
+                                                            {/* <td></td> */}
+                                                            {/* <td>{checkname.time.startdate}</td> */}
                                                             {/* <td>{checkname.studentID}</td> */}
-                                                            <td>{checkname.status}</td>
+                                                            {/* <td>{checkname.status}</td> */}
                                                             <td> 
                                                                     { this.renderUserButton(checkname.time) }
                                                             </td>
