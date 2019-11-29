@@ -12,7 +12,7 @@ export default class Cameras extends Component {
             classID: null
         }
 
-        componentWillMount = () =>{
+        componentWillMount =    () =>{
             this.setState({classID: this.props.match.params.classID})
             console.log(this.state.classID)
         }
