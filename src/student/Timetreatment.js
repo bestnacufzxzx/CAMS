@@ -15,7 +15,9 @@ export default class Timetreatment extends Component {
         let historyclassID = classID; //+historyclassID
         return (
             <Link to={'/student/Showhistorycourse/'+historyclassID}> 
-                <button type="button" className="btn btn-info" >ประวัติการเข้าเรียน</button>
+                <button type="button" className="btn btn-block btn-primary btn-sm" > ประวัติการเข้าเรียน</button>
+
+                {/* <button type="button" className="btn btn-info" >ประวัติการเข้าเรียน</button> */}
             </Link>
         );
     }
@@ -33,6 +35,12 @@ export default class Timetreatment extends Component {
         .catch(error => {
         console.log("====>",error.status);
         });
+
+        // const script = document.createElement("script");
+        // script.src = '../js/Showimportteacher/content.js';
+        // script.async = true;
+        // document.body.appendChild(script);
+
     }
 
     render() {

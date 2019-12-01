@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Breadcrumb from '../../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 
-export default class CreateCourse extends Component {
+export default class EditCourse extends Component {
     componentDidMount(){
         const script = document.createElement("script");
         script.src = '../js/Showimportteacher/content.js';
@@ -14,9 +14,9 @@ export default class CreateCourse extends Component {
         return (
    
              <div className="content-wrapper">
-                <Breadcrumb header="สร้างกำหนดการเรียนการสอน" subheader="" arrow={
+                <Breadcrumb header="แก้ไขกำหนดการเรียนการสอน" subheader="" arrow={
                     [
-                        {"icon":"", "title":"สร้างกำหนดการเรียนการสอน", "link":"#", "active":"active"}
+                        {"icon":"", "title":"แก้ไขกำหนดการเรียนการสอน", "link":"#", "active":"active"}
                     ]
                 } />
 
@@ -61,7 +61,7 @@ export default class CreateCourse extends Component {
                                             <i className="fa fa-arrow-circle-right"></i> บันทึก
                                         </button>
 
-                                        <Link to="/teacher/Course"><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link>
+                                        <Link to="/lecturer/Course"><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link>
                                         {/* <a href="" className="pull-right btn btn-danger" style="margin-right: 4px;">
                                             <i className="fa fa-arrow-circle-left"></i> กลับ
                                         </a> */}

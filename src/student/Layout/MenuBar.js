@@ -12,7 +12,7 @@ export default class MenuBar extends Component {
             {/* <!-- sidebar: style can be found in sidebar.less --> */}
             <section className="sidebar" >
               {/* Sidebar user panel */}
-                <div className="user-panel">
+                {/* <div className="user-panel">
                   <div className="pull-left image">
                     <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
                   </div>
@@ -20,7 +20,7 @@ export default class MenuBar extends Component {
                     <p>อักขระ เดช</p>
                     <a href="fake_url"><i className="fa fa-circle text-success" /> Online</a>
                   </div>
-                </div>
+                </div> */}
                 {/* search form */}
                 <form action="#" method="get" className="sidebar-form">
                   <div className="input-group">
@@ -48,7 +48,7 @@ export default class MenuBar extends Component {
                           {/* <li><Link to="/teacher/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
                         {/* </ul> */}
                       </li>  
-                          <li><Link to="/student/Registercourses" ><i class="fa fa-circle-o"></i><span>ลงทะเบียนเข้าเรียน</span></Link></li>
+                          <li><Link to="/student/Checkname" ><i class="fa fa-circle-o"></i><span>ลงทะเบียนเข้าเรียน</span></Link></li>
                           <li><Link to="/student/Timetreatment" ><i class="fa fa-circle-o"></i> <span>ประวัติเข้าเรียนของนักศึกษา</span></Link></li>
                           {/* <li><Link to="/admin/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
                 </ul>

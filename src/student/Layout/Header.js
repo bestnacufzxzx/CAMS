@@ -27,7 +27,7 @@ export default class Header extends Component {
                         <li className="dropdown user user-menu">
                             <a href="fake_url" className="dropdown-toggle" data-toggle="dropdown">
                             <img src="/dist/img/user2-160x160.jpg" className="user-image" alt="User" />
-                            <span className="hidden-xs">อักขระ เดช</span>
+                                <span className="hidden-xs"> {}พัฒนะศักดิ์ พิเศษศิลป์</span>
                             </a>
                             <ul className="dropdown-menu">
                             {/* User image */}
@@ -68,9 +68,9 @@ export default class Header extends Component {
                             </ul>
                         </li>
                         {/* Control Sidebar Toggle Button */}
-                        <li>
+                        {/* <li>
                             <a href="fake_url" data-toggle="control-sidebar"><i className="fa fa-gears" /></a>
-                        </li>
+                        </li> */}
                         </ul>
                     </div>
                     </nav>

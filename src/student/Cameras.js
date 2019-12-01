@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Breadcrumb from '../components/Breadcrumb';
 import Camera, { FACING_MODES } from '../lib';
 import axios from 'axios';
+import Modal from './Layout/modal/Modal';
+// import { Link } from "react-router-dom";
 
  
 export default class Cameras extends Component {
@@ -43,7 +45,7 @@ export default class Cameras extends Component {
             console.log(user_ID);
             axios.post('http://localhost/cams_server/api/Checknamestudent/postCheckname', { classID: this.state.classID,picture:picture,studentID:user_ID }  )
             .then(res => {
-            //   this.setState({ picture: res.data });
+                alert("สำเร็จ");
             })
             .catch(error => {
               console.log("====>",error.status);
@@ -79,6 +81,8 @@ export default class Cameras extends Component {
                         <div class="box theader-search-sky">
                             <div class="box-header">                   
                                 {/* {latitude} , {longitude} */}
+                                <Modal/>
+
                             </div>
                         </div>
                     </div>
