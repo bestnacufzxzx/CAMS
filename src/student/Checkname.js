@@ -66,8 +66,16 @@ export default class Checkname extends Component {
 
        
       }
-      componentWillMount(){
-        localStorage.setItem("user_ID", '59123456');
+      renderUserName = (data) => {
+        const firstName = (data.firstName);
+        const lastName = (data.lastName);
+        localStorage.setItem("firstName", firstName);
+        localStorage.setItem("lastName", lastName);
+        // console.log(firstName,lastName);
+
+      }
+      componentWillMount = () => {
+        localStorage.setItem("user_ID", '59142901');
       }
 
     componentDidMount = () =>{
@@ -90,8 +98,8 @@ export default class Checkname extends Component {
 
 
     render() {
-        console.log(this.state.show)
-        console.log(this)
+        // console.log(this.state.show)
+        // console.log(this)
         return (
 
              <div className="content-wrapper">
@@ -152,6 +160,7 @@ export default class Checkname extends Component {
                                                             {/* <td>{checkname.data.buildingName}</td> */}
                                                             <td> 
                                                                     { this.renderUserButton(checkname.time) }
+                                                                    { this.renderUserName(checkname.data) }
                                                             </td>
                                                         </tr>
                                                     ))}

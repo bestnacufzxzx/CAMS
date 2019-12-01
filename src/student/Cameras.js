@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Breadcrumb from '../components/Breadcrumb';
 import Camera, { FACING_MODES } from '../lib';
 import axios from 'axios';
-import Modal from './Layout/modal/Modal';
+// import Modal from './Layout/modal/Modal';
 // import { Link } from "react-router-dom";
 
  
@@ -76,17 +76,17 @@ export default class Cameras extends Component {
 
             
             <div className="content body">
-                <div class="row">
+                {/* <div class="row">
                     <div class="col-md-12">
                         <div class="box theader-search-sky">
                             <div class="box-header">                   
-                                {/* {latitude} , {longitude} */}
+                                {latitude} , {longitude}
                                 <Modal/>
 
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="row">
                     <div className="col-md-12">
                         <div className="box box-primary">
