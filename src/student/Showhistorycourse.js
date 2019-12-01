@@ -12,16 +12,17 @@ export default class Showhistorycourse extends Component {
     }
 
     componentWillMount = () =>{
-        this.setState({historyclassID: this.props.match.params.historyclassID})
-        console.log(this.state.historyclassID)
+        this.setState({historyuser_ID: this.props.match.params.historyuser_ID})
+        console.log(this.state.historyuser_ID)
     }
 
 
     componentDidMount(){
-        const { historyclassID } = this.props.match.params;
-        console.log(historyclassID)
+        const { historyclassID,historyuser_ID } = this.props.match.params;
+        // const { historyuser_ID } = this.props.match.params.historyuser_ID;
+        console.log(historyclassID,historyuser_ID)
         // let user_ID = localStorage.getItem("user_ID");
-        axios.post('http://localhost/cams_server/api/Checknamestudent/postHistoryChecknameByCourse', { classID: historyclassID} )
+        axios.post('http://localhost/cams_server/api/Checknamestudent/postHistoryChecknameByCourse', { classID: historyclassID,user_ID:historyuser_ID} )
         .then(res => {
         this.setState({ historys: res.data });
         })

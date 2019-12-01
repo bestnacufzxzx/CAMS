@@ -11,10 +11,13 @@ export default class Timetreatment extends Component {
         // show: false
 
     }
+    
     renderButton(classID){
+        let historyuser_ID = localStorage.getItem("user_ID");
+        console.log(historyuser_ID);
         let historyclassID = classID; //+historyclassID
         return (
-            <Link to={'/student/Showhistorycourse/'+historyclassID}> 
+            <Link to={'/student/Showhistorycourse/'+historyclassID+'/'+historyuser_ID}> 
                 <button type="button" className="btn btn-block btn-primary btn-sm" > ประวัติการเข้าเรียน</button>
 
                 {/* <button type="button" className="btn btn-info" >ประวัติการเข้าเรียน</button> */}

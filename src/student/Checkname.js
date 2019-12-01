@@ -67,7 +67,7 @@ export default class Checkname extends Component {
        
       }
       componentWillMount(){
-        localStorage.setItem("user_ID", '59142901');
+        localStorage.setItem("user_ID", '59123456');
       }
 
     componentDidMount = () =>{
