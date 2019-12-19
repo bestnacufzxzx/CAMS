@@ -30,9 +30,12 @@ export default class Createlocation extends Component {
                                     <div className="col-md-5"></div>
                                         <div className="col-md-2">
                                         </div>
-                                    <div className="col-md-3 form-group">
+                                    <div className="col-md-6 form-group">
                                         <div className="input-group col-md-12">
-                                            <input type="text" value="ตั้งชื่อสถานที่" name="name" className="form-control" />
+                                            <input type="text" value="ตั้งชื่ออาคาร" name="name" className="form-control" />                                          
+                                        </div>
+                                        <div className="input-group col-md-12">                     
+                                            <input type="text" value="ตั้งชื่อห้อง" name="name" className="form-control" />    
                                         </div>
                                     </div>
                                     <div className="col-md-2 form-group text-center">
@@ -56,12 +59,6 @@ export default class Createlocation extends Component {
                                     </div>
                                 </div>
                                 <div className="box-body">
-                                <br />
-                                    <div className="row">
-                                        <div className="col-sm-12">
-                                        <button type="button" onClick={this.handleClick} className="btn btn-block btn-info">แสดงพิกัด </button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

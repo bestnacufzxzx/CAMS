@@ -62,14 +62,14 @@ export default class MenuBar extends Component {
 
                       <li className="treeview">
                         <Link>
-                          <i className="fa fa-tasks"></i> <span>จัดการบันชีผู้ใช้งาน</span>
+                          <i className="fa fa-tasks"></i> <span>จัดการบัญชีผู้ใช้งาน</span>
                           <span className="pull-right-container">
                             <i className="fa fa-angle-left pull-right"></i>
                           </span>
                         </Link>
                         <ul className="treeview-menu">
-                          <li><Link to="/admin/ShowAccountTeacher" ><i class="fa fa-circle-o"></i>จัดการบันชีอาจารย์</Link></li>
-                          <li><Link to="/admin/ShowAccountStudent"><i class="fa fa-circle-o"></i>จัดการบันชีนักศึกษา</Link></li>
+                          <li><Link to="/admin/ShowAccountTeacher" ><i class="fa fa-circle-o"></i>จัดการบัญชีอาจารย์</Link></li>
+                          <li><Link to="/admin/ShowAccountStudent"><i class="fa fa-circle-o"></i>จัดการบัญชีนักศึกษา</Link></li>
                         </ul>
                       </li>
         

@@ -1,14 +1,30 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default class Showlocation extends Component {
-    componentDidMount(){
-        const script = document.createElement("script");
-        script.src = '../js/Showlocation/content.js';
-        script.async = true;
-        document.body.appendChild(script);
+    // componentDidMount(){
+    //     const script = document.createElement("script");
+    //     script.src = '../js/Showlocation/content.js';
+    //     script.async = true;
+    //     document.body.appendChild(script);
+    // }
+    state = {
+        locations : []
     }
+
+    componentDidMount(){
+
+        axios.get('http://localhost/cams_server/api/insertlocation/get_all')
+        .then(response => {
+          this.setState({ locations: response.data });
+        })
+        .catch(error => {
+          console.log("====>",error.status);
+        });
+
+    };
 
     render() {
         return (
@@ -55,29 +71,18 @@ export default class Showlocation extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr role="row" className="odd">
-                                                        <td className="sorting_1">7</td>
-                                                        <td>203</td>
-                                                        <td> 
-                                                            <Link to="/admin/Editlocation"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> </Link>
-                                                            <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" className="even">
-                                                        <td className="sorting_1">3</td>
-                                                        <td>106</td>
-                                                        <td>
-                                                            <button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" className="even">
-                                                        <td className="sorting_1">1</td>
-                                                        <td>202</td>
-                                                        <td>
-                                                            <Link to="/admin/Editlocation"><button type="button" className="btn btn-warning"><i className="fa fa-edit"></i></button> </Link>
-                                                            <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
+
+                                                { this.state.locations.map((location, i) => (
+                                                        <tr role="row">
+                                                            <td>{location.buildingID}</td>
+                                                            <td>{location.roomname}</td>
+                                                            <td> 
+                                                                <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default"><i className="fa fa-edit"></i></button>
+                                                                <button type="button" className="btn btn-danger" ><i className="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    ))
+                                                    }
                                                 </tbody>
                                             </table>
                                         </div>
