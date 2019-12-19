@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Breadcrumb from '../../../components/Breadcrumb.js';
-import Map from '../,,/../../../Map/Map';
+import Map from '../Map/Map';
 // import { Link } from "react-router-dom";
 
 export default class Editlocation extends Component {
@@ -26,9 +26,7 @@ export default class Editlocation extends Component {
                         <div class="col-lg-9">
                             <div class="box theader-sky">
                                 <div class="box-body">
-
-                                                    <Map></Map>
-
+                                    <Map/>
                                 </div>
                             </div>
                         </div>                  
