@@ -16,7 +16,7 @@ export default class Showlocation extends Component {
 
     componentDidMount(){
 
-        axios.get('http://localhost/cams_server/api/insertlocation/get_all')
+        axios.get('http://localhost/cams_server/api/location/get_all')
         .then(response => {
           this.setState({ locations: response.data });
         })
@@ -74,7 +74,7 @@ export default class Showlocation extends Component {
 
                                                 { this.state.locations.map((location, i) => (
                                                         <tr role="row">
-                                                            <td>{location.buildingID}</td>
+                                                            <td>{location.buildingName}</td>
                                                             <td>{location.roomname}</td>
                                                             <td> 
                                                                 <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default"><i className="fa fa-edit"></i></button>

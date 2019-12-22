@@ -1,4 +1,4 @@
-import React, {Component, setState, useState} from "react";
+import React, {Component, useState} from "react";
 import ReactMapboxGl from "react-mapbox-gl";
 import DrawControl from "react-mapbox-gl-draw";
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
