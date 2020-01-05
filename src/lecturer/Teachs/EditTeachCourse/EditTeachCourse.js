@@ -13,7 +13,6 @@ state = {
     courseName:'',
     Allstudent:[],
     courseID: '',
-    courseName:''
 }
 
 handleChange = (event) => {

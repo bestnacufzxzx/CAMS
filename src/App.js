@@ -1,7 +1,8 @@
-import React from 'react';
+import React ,{ Component } from 'react';
 import './App.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route} from "react-router-dom";
+
 
 
 // import Containers from './Containers/containers';
@@ -17,18 +18,19 @@ import { BrowserRouter, Route} from "react-router-dom";
 // import Content from './auth/Layout/Content';
 
 
-
 // page admin
-import MenuBar from './admin/Layout/MenuBar';
-import Header from './admin/Layout/Header';
-import Footer from './admin/Layout/Footer';
-import Content from './admin/Layout/Content';
+// import MenuBar from './admin/Layout/MenuBar';
+// import Header from './admin/Layout/Header';
+// import Footer from './admin/Layout/Footer';
+// import Content from './admin/Layout/Content';
+
+
 
 // page lecturer
-// import MenuBar from './lecturer/Layout/MenuBar';
-// import Header from './lecturer/Layout/Header';
-// import Footer from './lecturer/Layout/Footer';
-// import Content from './lecturer/Layout/Content';
+import MenuBar from './lecturer/Layout/MenuBar';
+import Header from './lecturer/Layout/Header';
+import Footer from './lecturer/Layout/Footer';
+import Content from './lecturer/Layout/Content';
 
 // page coursecoordinator
 // import MenuBar from './coursecoordinator/Layout/MenuBar';
@@ -56,35 +58,39 @@ import Content from './admin/Layout/Content';
 
 
 // page admin
-import ShowCourse from './admin/course/ShowCourse';
-import Updatacourse from './admin/course/Updatacourse';
-import ImportCourse from './admin/course/ImportCourse';
-import Showlocation from './admin/setlocationmap/Showlocation';
-import Editlocation from './admin/setlocationmap/editlocatonmap/Editlocation';
-import Createlocation from './admin/setlocationmap/createlocation/Createlocation';
-import Showimportteacher from './admin/Importteacher/Showimportteacher';
-import Createimportteacher from './admin/Importteacher/importteacher/Createimportteacher';
-import Showimportstudent from './admin/Importstudent/Showimportstudent';
-import Createimportstudent from './admin/Importstudent/Importstudents/Createimportstudent';
-import EditImportteacher from './admin/Importteacher/EditImportteacher/EditImportteacher';
-import EditImportstudent from './admin/Importstudent/EditImportstudent/EditImportstudent';
-import ShowAccountStudent from './admin/AccountStudent/ShowAccountStudent';
-import CreateAccountStudent from './admin/AccountStudent/CreateAccountStudent/CreateAccountStudent';
-import ShowAccountTeacher from './admin/AccountTeacher/ShowAccountTeacher';
-import CreateAccountTeacher from './admin/AccountTeacher/CreateAccountTeacher/CreateAccountTeacher';
-import EditAccountTeacher from './admin/AccountTeacher/EditAccountTeacher/EditAccountTeacher';
-import EditAccountStudent from './admin/AccountStudent/EditAccountStudent/EditAccountStudent';
+// import ShowCourse from './admin/course/ShowCourse';
+// import Updatacourse from './admin/course/Updatacourse';
+// import ImportCourse from './admin/course/ImportCourse';
+// import Showlocation from './admin/setlocationmap/Showlocation';
+// import Editlocation from './admin/setlocationmap/editlocatonmap/Editlocation';
+// import Createlocation from './admin/setlocationmap/createlocation/Createlocation';
+// import Showimportteacher from './admin/Importteacher/Showimportteacher';
+// import Createimportteacher from './admin/Importteacher/importteacher/Createimportteacher';
+// import Showimportstudent from './admin/Importstudent/Showimportstudent';
+// import Createimportstudent from './admin/Importstudent/Importstudents/Createimportstudent';
+// import EditImportteacher from './admin/Importteacher/EditImportteacher/EditImportteacher';
+// import EditImportstudent from './admin/Importstudent/EditImportstudent/EditImportstudent';
+// import ShowAccountStudent from './admin/AccountStudent/ShowAccountStudent';
+// import CreateAccountStudent from './admin/AccountStudent/CreateAccountStudent/CreateAccountStudent';
+// import ShowAccountTeacher from './admin/AccountTeacher/ShowAccountTeacher';
+// import CreateAccountTeacher from './admin/AccountTeacher/CreateAccountTeacher/CreateAccountTeacher';
+// import EditAccountTeacher from './admin/AccountTeacher/EditAccountTeacher/EditAccountTeacher';
+// import EditAccountStudent from './admin/AccountStudent/EditAccountStudent/EditAccountStudent';
 
 
 // page lecturer
-// import Attendancelocation from './lecturer/Attendancelocation/Attendancelocation';
-// import Course from './lecturer/Course/Course';
-// import CreateAttendencelocation from './lecturer/Attendancelocation/CreateAttendencelocation/CreateAttendencelocation';
-// import EditCourse from './lecturer/Course/EditCourse/EditCourse';
-// import CreateCourse from './lecturer/Course/CreateCourse/CreateCourse';
-// import Timetreatment from './lecturer/Timetreatment/Timetreatment';
-// import Profile from './lecturer/Profile/Profile';
-// import Showhistorycourse from './lecturer/Showhistorycourse/Showhistorycourse';
+import Attendancelocation from './lecturer/Attendancelocation/Attendancelocation';
+import Course from './lecturer/Course/Course';
+import CreateAttendencelocation from './lecturer/Attendancelocation/CreateAttendencelocation/CreateAttendencelocation';
+import EditCourse from './lecturer/Course/EditCourse/EditCourse';
+import CreateCourse from './lecturer/Course/CreateCourse/CreateCourse';
+import Timetreatment from './lecturer/Timetreatment/Timetreatment';
+import Profile from './lecturer/Profile/Profile';
+import Showhistorycourse from './lecturer/Showhistorycourse/Showhistorycourse';
+import Teachs from './lecturer/Teachs/Teachs';
+import Historysbystudent from './lecturer/Historysbystudent/Historysbystudent';
+import EditTeachCourse from './lecturer/Teachs/EditTeachCourse/EditTeachCourse';
+import CreateTeachCourse from './lecturer/Teachs/CreateTeachCourse/CreateTeachCourse';
 
 // page coursecoordinator
 // import CreateRegistrationlink from './coursecoordinator/CreateRegistrationlink/CreateRegistrationlink';
@@ -93,13 +99,15 @@ import EditAccountStudent from './admin/AccountStudent/EditAccountStudent/EditAc
 // import ShowRegistrationlink from './coursecoordinator/ShowRegistrationlink/ShowRegistrationlink';
 
 // page student
-// import Checkname from './student/Checkname';
+// import Listcourse from './student/Listcourse';
 // import Profile from './student/Profile/Profile';
 // import Camera from './student/Cameras';
 // import Showhistorycourse from './student/Showhistorycourse';
 // import Timetreatment from './student/Timetreatment';
 // import Cameras from './student/Cameras';
 // import Registercourses from './student/Registercourses';
+// import Checkname from './student/Checkname';
+// import Test from './student/Test/Test';
 
 // page parent
 // import ShowStudenthistory from './parent/ShowStudenthistory';
@@ -109,7 +117,10 @@ import EditAccountStudent from './admin/AccountStudent/EditAccountStudent/EditAc
 
 // const store = configStore();
 
-function App() {
+export default class App extends Component{
+  render(){
+      let role = localStorage.getItem('role');
+      console.log(role)
   return (
     <BrowserRouter>
       <Header></Header>
@@ -118,10 +129,12 @@ function App() {
 
                                     {/* page auth */}
           {/* <Route exact path="/" component={Auth} /> */}
-          
+
+
+         
 
                                     {/* page admin*/}
-          <Route exact path="/admin/ShowCourse" component={ShowCourse} />
+          {/* <Route exact path="/admin/ShowCourse" component={ShowCourse} />
           <Route exact path="/admin/course/ImportCourse" component={ImportCourse} />
           <Route exact path="/admin/course/Updatacourse" component={Updatacourse} />
           <Route exact path="/admin/Showlocation" component={Showlocation} />
@@ -131,26 +144,33 @@ function App() {
           <Route exact path="/admin/Createimportteacher" component={Createimportteacher} />
           <Route exact path="/admin/Showimportstudent" component={Showimportstudent} />
           <Route exact path="/admin/Createimportstudent" component={Createimportstudent} />
-          <Route exact path="/admin/EditImportteacher" component={EditImportteacher} />
-          <Route exact path="/admin/EditImportstudent" component={EditImportstudent} />
+          <Route exact path="/admin/EditImportteacher/:lecturerID" component={EditImportteacher} />
+          <Route exact path="/admin/EditImportstudent/:studentID" component={EditImportstudent} />
           <Route exact path="/admin/ShowAccountStudent" component={ShowAccountStudent} />
           <Route exact path="/admin/CreateAccountStudent" component={CreateAccountStudent} />
           <Route exact path="/admin/ShowAccountTeacher" component={ShowAccountTeacher} />
           <Route exact path="/admin/CreateAccountTeacher" component={CreateAccountTeacher} />
-          <Route exact path="/admin/EditAccountTeacher" component={EditAccountTeacher} />
-          <Route exact path="/admin/EditAccountStudent" component={EditAccountStudent} />
-w
+          <Route exact path="/admin/EditAccountTeacher/:user_id" component={EditAccountTeacher} />
+          <Route exact path="/admin/EditAccountStudent/:user_id" component={EditAccountStudent} /> */}
+
 
 
                                     {/* page lecturer*/}
-          {/* <Route exact path="/lecturer/Attendancelocation" component={Attendancelocation} />
+          <Route exact path="/lecturer/Attendancelocation" component={Attendancelocation} />
           <Route exact path="/lecturer/Course" component={Course} />
           <Route exact path="/lecturer/CreateAttendencelocation" component={CreateAttendencelocation} />
-          <Route exact path="/lecturer/EditCourse" component={EditCourse} />
+          <Route exact path="/lecturer/EditCourse/:teachingID" component={EditCourse} />
           <Route exact path="/lecturer/CreateCourse" component={CreateCourse} />
           <Route exact path="/lecturer/Timetreatment" component={Timetreatment} />
           <Route exact path="/lecturer/Profile" component={Profile} /> 
-          <Route exact path="/lecturer/Showhistorycourse" component={Showhistorycourse} />  */}
+          <Route exact path="/lecturer/Showhistorycourse" component={Showhistorycourse} /> 
+          <Route exact path="/lecturer/Teachs/:courseID" component={Teachs} /> 
+          <Route exact path="/lecturer/Historysbystudent/:HistorysbystudentcourseID" component={Historysbystudent} /> 
+          <Route exact path="/lecturer/EditTeachCourse/:classID" component={EditTeachCourse} /> 
+          <Route exact path="/lecturer/CreateTeachCourse/:courseID" component={CreateTeachCourse} /> 
+
+
+          
 
 
                                 {/* page coursecoordinator*/}
@@ -164,12 +184,14 @@ w
                                     {/* page student */}
                                   
           {/* <Route exact path="/student" component={Registercourses} /> 
-          <Route exact path="/student/Checkname" component={Checkname} /> 
+          <Route exact path="/student/Listcourse" component={Listcourse} /> 
           <Route exact path="/student/Profile" component={Profile} /> 
           <Route exact path="/student/Camera" component={Camera} /> 
           <Route exact path="/student/Showhistorycourse/:historyclassID/:historyuser_ID" component={Showhistorycourse} /> 
           <Route exact path="/student/Timetreatment" component={Timetreatment} /> 
-          <Route exact path="/student/Cameras/:classID" component={Cameras} />  */}
+          <Route exact path="/student/Cameras/:classID" component={Cameras} /> 
+          <Route exact path="/student/Checkname/:courseID" component={Checkname} /> 
+          <Route exact path="/student/Test" component={Test} />  */}
 
 
 
@@ -184,6 +206,6 @@ w
       <Footer></Footer>
     </BrowserRouter>
   );
+  }
 }
 
-export default App;

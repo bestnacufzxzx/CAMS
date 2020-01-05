@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../../components/Breadcrumb';
-import Map from '../../../Map/Map';
+// import Map from '../../../Map/Map';
 // import { Link } from "react-router-dom";
 
 export default class CreateAttendencelocation extends Component {
@@ -28,7 +28,7 @@ export default class CreateAttendencelocation extends Component {
                                 <div className="box-body">
                                     <br />
                                     <div className="row">                                 
-                                        <Map />
+                                        {/* <Map /> */}
                                     </div>
                                 </div>
                                 <div className="box-body">
