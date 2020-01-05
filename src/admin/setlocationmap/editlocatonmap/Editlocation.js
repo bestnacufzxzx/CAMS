@@ -6,6 +6,7 @@ import Map from '../Map/Map';
 export default class Editlocation extends Component {
 
     componentDidMount(){
+
         const script = document.createElement("script");
         script.src = '../js/Editlocation/content.js';
         script.src = '../js/Editlocation/content.css';
@@ -15,7 +16,7 @@ export default class Editlocation extends Component {
     render(){
         return(
              <div className="content-wrapper">
-                <Breadcrumb header="แก้ไขสถานที่" arrow={
+                <Breadcrumb header="แก้ไขสถานที่" arrow = {
                     [
                         {"icon":"fa fa-dashboard", "title":"แก้ไขสถานที่", "link":"#", "active":"active"}
                     ]
