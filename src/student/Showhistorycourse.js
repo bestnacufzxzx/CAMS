@@ -16,6 +16,23 @@ export default class Showhistorycourse extends Component {
         console.log(this.state.historyuser_ID)
     }
 
+    renderCheckstatus(rehistory){
+        let d1 = new Date();
+        let d2 = new Date(rehistory.datetime);
+        // let d3 = new Date(rehistory.startdate+' '+rehistory.endtime);
+        // let d3 = new Date(course.startcheck+' '+course.endcheck)         
+        console.log("ปัจจุบัน",d1);
+        console.log("เริ่ม",d2);
+        // console.log("สิ้นสุด",d3);
+        // if(rehistory.){
+        //
+        // }
+        //
+        //
+        //
+        //
+        //
+    }
 
     componentDidMount(){
         const { historyclassID,historyuser_ID } = this.props.match.params;
@@ -43,7 +60,7 @@ export default class Showhistorycourse extends Component {
              <div className="content-wrapper">
                 <Breadcrumb header="ประวัติการเข้าเรียน" subheader="" arrow={
                     [
-                        {"icon":"", "title":"ประวัติการเข้าเรียน", "link":"#", "active":"active"}
+                        // {"icon":"", "title":"ประวัติการเข้าเรียน", "link":"#", "active":"active"}
                     ]
                 } />
                 <div className="content body">
@@ -85,7 +102,7 @@ export default class Showhistorycourse extends Component {
                                                         <th className="col-sm-3" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">เวลาเข้าเรียน</th>
                                                         <th className="col-sm-4" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">อาคารเรียน</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">สถานะเข้าเรียน</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">คะแนเข้าเรียน</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">เปอร์เซ็นการเข้าเรียน</th>
                                                    
                                                     </tr>
                                                 </thead>
@@ -97,7 +114,7 @@ export default class Showhistorycourse extends Component {
                                                                 <td>{history.datetime}</td>
                                                                 <td>{history.buildingName}</td>
                                                                 <td>{history.status}</td>
-                                                                <td> {} </td>
+                                                                <td> {this.renderCheckstatus(history)} </td>
                                                             </tr>
                                                         ))}
                                                 </tbody>

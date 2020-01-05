@@ -1,19 +1,22 @@
+
 import React, { Component } from 'react'
 import axios from 'axios';
 import service_uri from '../../../components/variable/service_uri';
-import { Link } from "react-router-dom";
-import Breadcrumb from '../../../components/Breadcrumb';
 
+export default class Modalecreatecourse extends Component {
 
-export default class CreateCourse extends Component {
-
-       
+    
 state = {
     Allourses:[],
     courseCode:'',
     courseName:'',
     Allstudent:[],
+    firstName : '',
+    lastName : '',
     courseID: ''
+    // startdate:'',
+    // starttime:'',
+    // endtime:''
 }
 
 handleChange = (event) => {
@@ -23,9 +26,9 @@ handleChange = (event) => {
     console.log(this.state)
 }
 
-RefreshPage = () => { 
-    window.location.href = 'http://localhost:3000/lecturer/Course'; 
-}
+// RefreshPage = () => { 
+//     window.location.href = 'http://localhost:3000/lecturer/Course'; 
+// }
 
 componentDidMount(){
     this.getAllCourse();
@@ -49,35 +52,37 @@ handleSubmit = (event) =>{
         courseID: this.state.courseID,
         })
         .then(res => {
-    
         alert("บันทึกสำเร็จ")
-        this.RefreshPage();
+            window.location.href = 'http://localhost:3000/lecturer/Course'; 
+
         })
         .catch(error => {
         console.log("====>",error.status);
         });
 }
 
-    render() {
+       render() {
         return (
    
-             <div className="content-wrapper">
-                  <Breadcrumb header="สร้างรายวิชาเรียน" subheader="" arrow={
-                    [
-                        // {"icon":"", "title":"กำหนดการเรียนการสอน", "link":"#", "active":"active"}
-                    ]
-                } />
-                <div className="content body">
-                    <div className="row">
-                        <div className="col-md-5">
-                            <div className="box box-primary">
-                                <div className="box-body">
-                                    <br />
-                                    <form onSubmit={this.handleSubmit}>
-                                    <div className="row">
-                                        <div className="col-sm-12">
+             <div>
+                <button type="button" className="btn btn-block btn-info pull-right" data-toggle="modal" data-target="#myModal" ><i class="fa fa-plus" aria-hidden="true" ></i> สร้าง</button>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">กำหนดการสอน</h4>
+                            </div>
+                            <form onSubmit={this.handleSubmit}>
+                            <div class="modal-body">
+                                <div className="row">
+                                    <div className="col-sm-12">
+                                        <div className="col-md-12">
                                             <div class="form-group input-group-sm">
                                                 <label for="courseCode" type="text" class="col-form-label">รหัสวิชา - ชื่อวิชา
+                                                {/* <select value={this.state.value} onChange={this.handleChange}>
+                                                    <option value={}>Grapefruit</option>
+                                                </select> */}
                                                 </label>
                                                 <select name="courseID" class="form-control" onChange={this.handleChange}>
                                                     <option>เลือกรายวิชา</option>
@@ -85,19 +90,17 @@ handleSubmit = (event) =>{
                                                     <option value={allourse.courseID}>{allourse.courseCode+' '+allourse.courseName}</option>
                                                 )) }
                                                 </select>
+                                                {/* <input type="text" class="form-control" name="courseCode" id="courseCode" value={this.state.courseCode} onChange={this.handleChange}/> */}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="box-footer clearfix">
-                                        <input type="hidden" name="" value=""/>
-                                        <button type="submit" className="pull-right btn btn-success" onClick={ this.handleChange }>
-                                            <i className="fa fa-arrow-circle-right"></i> บันทึก
-                                        </button>
-                                        <Link to="/lecturer/Course"><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link>
-                                    </div>
-                                    </form>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                                <button type="sumbit" class="btn btn-primary" onClick={ this.handleChange }>บันทึก</button>
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -106,4 +109,6 @@ handleSubmit = (event) =>{
         )
     }
 }
+
+
 

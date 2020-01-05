@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import Modalecreatecourse from './CreateCourse/Modalecreatecourse';
 import axios from 'axios';
 import service_uri from '../../components/variable/service_uri';
-
+import Modaleditcourse from './EditCourse/Modaleditcourse';
 
 export default class Course extends Component {
+
 
     state = {
         courses : [],
@@ -16,25 +17,23 @@ export default class Course extends Component {
     rendercourseID(course){
         let courseID = (course.courseID);
         return(
-            <Link to={'/lecturer/Teachs/'+courseID}>
-                <button type="button" className="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"> </i> </button>&nbsp;
+            <Link to={'/lecturer/EditCourse/Modaleditcourse/'+courseID}>
+                <button type="button" className="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button>
+            </Link>
+        )
+    }
+    rendereditcourse(teachingID){
+        return(
+            <Link to={'/lecturer/Teachs/'+teachingID}>
+                {/* <Modaleditcourse/>    */}
+                <button type="button" className="btn btn-info"> <i class="fa fa-edit" aria-hidden="true"> </i> </button>
             </Link> 
         )
     }
-    // rendereditcourse(course){
-    //     let teachingID = (course.teachingID);
-    //     // console.log(courseID);
-    //     return(
-    //         // <Modaleditcourse/>
-    //         <Link to={'/lecturer/EditCourse/'+teachingID}>
-    //             <button type="button" className="btn btn-info"> <i class="fa fa-edit" aria-hidden="true"> </i> </button>&nbsp;
-    //         </Link> 
-    //     )
-    // }
     renderdelete(teachingID){
         return(
-            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(teachingID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
-        )
+                <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(teachingID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
+    )
     }
     RefreshPage=()=> { 
         window.location.href = 'http://localhost:3000/lecturer/Course'; 
@@ -50,13 +49,17 @@ export default class Course extends Component {
             })
             alert("ลบสำเร็จ")
             this.RefreshPage();
-    } 
+    }
 
     componentDidMount(){
+        // const script = document.createElement("script");
+        // script.src = '../js/Showimportteacher/content.js';
+        // script.async = true;
+        // document.body.appendChild(script);
 
         let lecturerID = localStorage.getItem("lecturerID");
         console.log(lecturerID);
-        axios.get('http://localhost/cams_server/api/lecturers/getCourseByteaching?lecturerID='+lecturerID)
+        axios.get(service_uri +'lecturers/getCourseByteaching?lecturerID='+lecturerID)
         .then(res => {
         this.setState({ courses: res.data });
         })
@@ -64,6 +67,7 @@ export default class Course extends Component {
         console.log("====>",error.status);
         });
     }
+
 
     render() {
         return (
@@ -95,7 +99,8 @@ export default class Course extends Component {
                                             {/* <Link to="/lecturer/CreateCourse">
                                                 <button type="button" className="btn btn-block btn-info pull-right"><i class="fa fa-plus" aria-hidden="true"></i> สร้าง</button>
                                             </Link> */}
-                                            <Modalecreatecourse />
+                                            <Modalecreatecourse/>
+                                            
                                          </div>
                                     </div>
                                 </div>
@@ -111,7 +116,7 @@ export default class Course extends Component {
                                         <div className="col-sm-12">
                                             <table id="example2" className="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                                 <thead>
-                                                    <tr>
+                                                    <tr   >
                                                         <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสวิชา</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อวิชา</th>
@@ -126,10 +131,11 @@ export default class Course extends Component {
                                                             <td>{course.courseCode}</td>
                                                             <td>{course.courseName}</td>
                                                             {/* <td>{course.lastName}</td> */}
-                                                            <td className="text-center">
-                                                                {this.rendercourseID(course)}
-                                                                {/* {this.rendereditcourse(course)} */}
+                                                            <td className="text-center"> 
+                                                                {this.rendereditcourse(course.teachingID)}
+                                                                 {/* <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(course.teachingID)}><i class="fa fa-trash"  aria-hidden="true"></i> </button> */}
                                                                 {this.renderdelete(course.teachingID)}
+                                                                {this.rendercourseID(course)}
                                                             </td>
                                                         </tr>
                                                     ))}

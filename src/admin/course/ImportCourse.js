@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
 import CSVReader from "react-csv-reader";
 import axios from 'axios';
+// import service_uri from '../../components/variable/service_uri';
 
 
 export default class ImportCourse extends Component {
@@ -21,18 +22,18 @@ export default class ImportCourse extends Component {
 
     readfileHandle = data => {
         let courses = {
-            course_Code: '',
-            course_Name: '',
-            course_Credits: ''
+            courseCode: '',
+            courseName: '',
+            // course_Credits: ''
         }
         const file = [];
         data.map((v) => {  //(v,i)
             let temp  = {...courses};
-            temp.course_Code = v[0];
-            temp.course_Name = v[1];
-            temp.course_Credits = v[2];
+            temp.courseCode = v[0];
+            temp.courseName = v[1];
+            // temp.course_Credits = v[2];
 
-            if (temp.course_Code == "" || temp.course_Code == null ){
+            if (!temp.courseCode === "" || !temp.courseCode === null ){
                 file.push(temp);
             }
             
@@ -47,16 +48,30 @@ export default class ImportCourse extends Component {
         this.setState({
             data: data
         })
+        console.log(this.state.data)
+
     }
 
     importHandle = () => {
-        axios.post('http://localhost/cams_services/importcourse/import', this.state.data)
+        // let data = [] = this.state.data;
+        // console.log("TEST"+data)
+        axios.post('http://localhost/cams_server/api/admin_showcourse/admin_importcourse/'+this.state.data)
         .then(response => {
           console.log(response);
         })
         .catch(error => {
           console.log("====>",error);
         });
+
+        // axios.get(service_uri+'admin_showcourse/admin_importcourse',this.state.data)
+    //     .then(res => {
+    //         // this.setState({ Allourses: res.data });
+    //       console.log(res);
+
+    //     })
+    //     .catch(error => {
+    //         console.log("====>",error.status);
+    //     });
     }
 
     clearShowFileImport = () => {
@@ -117,9 +132,9 @@ export default class ImportCourse extends Component {
                                             { (this.state.data.length > 0)? this.state.data.map((v, i) => (
                                                 <tr role="row" className="odd">
                                                     <td className="sorting_1">{i+1}</td>
-                                                    <td>{v.course_Code}</td>
-                                                    <td>{v.course_Name}</td>
-                                                    <td>{v.course_Credits}</td>
+                                                    <td>{v.courseCode}</td>
+                                                    <td>{v.courseName}</td>
+                                                    {/* <td>{v.courseCredits}</td> */}
                                                 </tr>
                                             )): (
                                                 <tr class="odd"><td valign="top" colspan="6" class="dataTables_empty">No data available in table</td></tr>

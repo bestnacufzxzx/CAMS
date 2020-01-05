@@ -2,7 +2,19 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 
 export default class Header extends Component {
+    state = {
+        fName : '',
+        lName : ''
+    }
 
+    componentDidMount = () =>{
+        let fName = localStorage.getItem("firstName");
+        let lName = localStorage.getItem("lastName");
+        this.setState({
+            Fname:fName,
+            Lname:lName
+        })
+      }
     render(){
         return(
             <div className>
@@ -27,19 +39,19 @@ export default class Header extends Component {
                         <li className="dropdown user user-menu">
                             <a href="fake_url" className="dropdown-toggle" data-toggle="dropdown">
                             <img src="/dist/img/user2-160x160.jpg" className="user-image" alt="User" />
-                            <span className="hidden-xs">อักขระ เดช</span>
+                            <span className="hidden-xs">{this.state.Fname} {this.state.Lname}</span>
                             </a>
                             <ul className="dropdown-menu">
                             {/* User image */}
                             <li className="user-header">
                                 <img src="/dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
-                                <p>
+                                {/* <p>
                                 Alexander Pierce - Web Developer
                                 <small>Member since Nov. 2012</small>
-                                </p>
+                                </p> */}
                             </li>
                             {/* Menu Body */}
-                            <li className="user-body">
+                            {/* <li className="user-body">
                                 <div className="row">
                                 <div className="col-xs-4 text-center">
                                     <a href="fake_url">Followers</a>
@@ -51,18 +63,18 @@ export default class Header extends Component {
                                     <a href="fake_url">Friends</a>
                                 </div>
                                 </div>
-                                {/* /.row */}
-                            </li>
+                                .row
+                            </li> */}
                             {/* Menu Footer*/}
                             <li className="user-footer">
                                 <div className="pull-left">
-                                <Link to="/admin/Profile" >
-                                    <button type="button" className="btn btn-default btn-flat" data-toggle="modal" data-target="#modal-default">Profile</button>
+                                <Link to="/student/Profile" >
+                                    <button type="button" className="btn btn-default btn-flat" data-toggle="modal" data-target="#modal-default">ข้อมูลส่วนตัว</button>
                                 </Link>
                                 {/* <a href="fake_url" className="btn btn-default btn-flat">Profile</a> */}
                                 </div>
                                 <div className="pull-right">
-                                <a href="fake_url" className="btn btn-default btn-flat">Sign out</a>
+                                <a href="fake_url" className="btn btn-default btn-flat">ออกจากระบบ</a>
                                 </div>
                             </li>
                             </ul>

@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from 'axios';
+import service_uri from '../../components/variable/service_uri';
 import TextInput from '../../components/TextInput';
 
 export default class ShowAccountStudent extends Component {
     state = {
-        data: [],
-        firstname: '',
-        lastname: '',
-        email: '',
-        tel: '',
-        username: '',
-        password: ''
+        accountusers: [],
     }
 
     componentDidMount(){
@@ -21,42 +17,57 @@ export default class ShowAccountStudent extends Component {
         document.body.appendChild(script);
     }
 
+    renderdelete(user_id){
+        return(
+            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(user_id)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
+        )
+    }
 
+    handleRemove = (user_id) => {
+        const url = service_uri +'admin_showuser/get_delete_user_id?user_id='+user_id;
+        axios.get(url)
+            .then(res => {
+                console.log(res);
+            })
+            alert("ลบสำเร็จ")
+            this.RefreshPage();
+    } 
+
+    RefreshPage=()=> { 
+        window.location.href = 'http://localhost:3000/admin/showaccountUser_student'; 
+    }
+
+    renderedit(accountusers){
+        let user_id = accountusers.user_id;
+        return(
+            <Link to={'EditAccountStudent/'+user_id}>
+               &nbsp; <button type="button" className="btn btn-success"> <i class="fa fa-edit" aria-hidden="true"> </i> </button>&nbsp;
+            </Link>
+        )
+    }
+
+    
     onChangeHandle = (event) => {
         let name = event.target.name;
         let value = event.target.value;
         this.setState({[name]: value});
     } 
 
-    createstudentinformation = () => {
+    componentDidMount(){
+        const script = document.createElement("script");
+        script.src = '../js/Showimportteacher/content.js';
+        script.async = true;
+        document.body.appendChild(script);
 
-        let structure = {
-            idstudent: this.state.idstudent,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            email: this.state.email,
-            tel: this.state.tel
-        }
+        axios.get('http://localhost/cams_server/api/admin_accountUser/showaccountUser_student')
+        .then(response => {
+          this.setState({ accountusers: response.data });
+        })
+        .catch(error => {
+          console.log("====>",error.status);
+        });
 
-        console.log(structure);
-
-    }
-
-    editstudentinformation = () => {
-
-        let structure = {
-            idstudent: this.state.idstudent,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            email: this.state.email,
-            tel: this.state.tel,
-            username: this.state.username,
-            password: this.state.password
-        }
-
-        console.log(structure);
-
-    }
+    };
 
     render() {
         return (
@@ -113,16 +124,19 @@ export default class ShowAccountStudent extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr role="row" className="odd">
-                                                        <td>1</td>
-                                                        <td className="sorting_1">59111111</td>
-                                                        <td className="sorting_1">นาย เรียนดี มีชัย</td>
-                                                        <td className="sorting_1">email.com</td>
-                                                        <td> 
-                                                            <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default-edit"><i className="fa fa-edit"></i></button>
-                                                            <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
-                                                        </td>
-                                                    </tr>
+                                                    { this.state.accountusers.map((accountusers, i) => (
+                                                        <tr role="row">
+                                                            <td>{i+1}</td>
+                                                            <td>{accountusers.studentID}</td>
+                                                            <td className="sorting_1"> {accountusers.prefix} {accountusers.firstName} {accountusers.lastName}</td>
+                                                            <td>{accountusers.email}</td>
+                                                            <td> 
+                                                                {/* {this.renderdelete(accountusers.user_id)} */}
+                                                                {this.renderedit(accountusers)}
+                                                            </td>
+                                                        </tr>
+                                                    ))
+                                                    }
                                                 </tbody>
                                             </table>
                                         </div>

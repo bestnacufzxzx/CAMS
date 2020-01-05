@@ -2,18 +2,41 @@ import React, { Component } from 'react';
 import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import service_uri from '../../components/variable/service_uri';
 
 export default class ShowCourse extends Component {
     state = {
         courses: []
     }
+
+    renderdelete(courseID){
+        return(
+            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(courseID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
+        )
+    }
+
+    handleRemove = (courseID) => {
+
+        const url = service_uri +'admin_showcourse/get_delete_courseid?courseID='+courseID;
+        axios.get(url)
+            .then(res => {
+                console.log(res);
+            })
+            alert("ลบสำเร็จ")
+            this.RefreshPage();
+    } 
+
+    RefreshPage=()=> { 
+        window.location.href = 'http://localhost:3000/admin/ShowCourse'; 
+    }
+
     componentDidMount(){
         const script = document.createElement("script");
         script.src = '../js/ShowCourse/content.js';
         script.async = true;
         document.body.appendChild(script);
 
-        axios.get('http://localhost/cams_services/courses/')
+        axios.get('http://localhost/cams_server/api/Admin_showcourse/get_all_courses')
         .then(response => {
           this.setState({ courses: response.data });
         })
@@ -81,8 +104,8 @@ export default class ShowCourse extends Component {
                                                             {/* <td>{course.courseCredits}</td> */}
                                                             {/* <td>1.7</td> */}
                                                             <td> 
-                                                                
-                                                                <Link to={'/admin/course/Updatacourse/'+course.courseID} ><button type="button" className="btn btn-warning" onClick={this.updateCourse} ><i className="fa fa-edit"></i></button></Link> <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
+                                                                {this.renderdelete(course.courseID)}
+                                                                {/* <Link to={'/admin/course/Updatacourse/'+course.courseID} ><button type="button" className="btn btn-warning" onClick={this.updateCourse} ><i className="fa fa-edit"></i></button></Link> <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button> */}
                                                             </td>
                                                         </tr>
                                                     ))}

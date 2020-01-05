@@ -4,16 +4,16 @@ import service_uri from '../../../components/variable/service_uri';
 import { Link } from "react-router-dom";
 import Breadcrumb from '../../../components/Breadcrumb';
 
-
-export default class CreateCourse extends Component {
-
+export default class EditTeachCourse extends Component {
+   
        
 state = {
     Allourses:[],
     courseCode:'',
     courseName:'',
     Allstudent:[],
-    courseID: ''
+    courseID: '',
+    courseName:''
 }
 
 handleChange = (event) => {
@@ -31,6 +31,30 @@ componentDidMount(){
     this.getAllCourse();
 }
 
+componentWillMount () {
+    const  teachingID  = this.props.match.params.teachingID;
+    console.log(teachingID );
+    axios.get('http://localhost/cams_server/api/lecturers/getBeforeCourse?teachingID='+teachingID)
+        .then(response => {
+        const result = response.data.response;
+        result.forEach(element => {
+            if(element.teachingID === teachingID){
+                this.setState({ 
+                    teachingID : element.teachingID,
+                    courseID : element.courseID,
+                    lecturerID :element.lecturerID,
+                    // courseCode: element.courseCode,
+                    courseName: element.courseCode +" "+ element.courseName,
+                })
+            }
+        });
+
+        })
+        .catch(error => {
+        });
+
+}
+
 getAllCourse = () => {
     axios.get(service_uri+'lecturers/getAllourse')
     .then(res => {
@@ -43,11 +67,11 @@ getAllCourse = () => {
 handleSubmit = (event) =>{
     event.preventDefault();
     let lecturerID = localStorage.getItem("lecturerID");
-    axios.post(service_uri+'lecturers/createcouresbylecturer', {
-
-        lecturerID : lecturerID,
+    axios.post('http://localhost/cams_server/api/lecturers/post_updatecourses/', {
+        teachingID: this.state.teachingID,
         courseID: this.state.courseID,
-        })
+        lecturerID: lecturerID,
+    })
         .then(res => {
     
         alert("บันทึกสำเร็จ")
@@ -59,6 +83,7 @@ handleSubmit = (event) =>{
 }
 
     render() {
+        const courseID = this.props.match.params.courseID;
         return (
    
              <div className="content-wrapper">
@@ -76,13 +101,19 @@ handleSubmit = (event) =>{
                                     <form onSubmit={this.handleSubmit}>
                                     <div className="row">
                                         <div className="col-sm-12">
+                                            {/*  */}
+                                            <div class="form-group">
+                                                <label for="courseName" type="text" class="col-form-label">รายวิชา</label>
+                                                <input type="text" class="form-control" name="courseName" id="courseName" value={this.state.courseName} onChange={this.handleChange}/>
+                                            </div>
+                                            {/*  */}
                                             <div class="form-group input-group-sm">
                                                 <label for="courseCode" type="text" class="col-form-label">รหัสวิชา - ชื่อวิชา
                                                 </label>
                                                 <select name="courseID" class="form-control" onChange={this.handleChange}>
                                                     <option>เลือกรายวิชา</option>
                                                 { this.state.Allourses.map((allourse,i) => (
-                                                    <option value={allourse.courseID}>{allourse.courseCode+' '+allourse.courseName}</option>
+                                                    <option value={courseID}>{allourse.courseCode+' '+allourse.courseName}</option>
                                                 )) }
                                                 </select>
                                             </div>
@@ -102,6 +133,7 @@ handleSubmit = (event) =>{
                     </div>
                 </div>
             </div>
+     
      
         )
     }

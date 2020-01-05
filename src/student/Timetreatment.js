@@ -52,7 +52,7 @@ export default class Timetreatment extends Component {
              <div className="content-wrapper">
                 <Breadcrumb header="แสดงรายชื่อวิชา" subheader="" arrow={
                     [
-                        {"icon":"", "title":"นักศึกษา", "link":"#", "active":"active"}
+                        // {"icon":"", "title":"นักศึกษา", "link":"#", "active":"active"}
                     ]
                 } />
 
@@ -89,7 +89,7 @@ export default class Timetreatment extends Component {
                                             <table id="example2" className="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                                 <thead>
                                                     <tr>
-                                                        <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
+                                                        {/* <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th> */}
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสวิชา</th>
                                                         <th className="col-sm-6" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อรายวิชา</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>
@@ -98,7 +98,7 @@ export default class Timetreatment extends Component {
                                                 <tbody>
                                                     { this.state.courses.map((course, i) => (
                                                             <tr role="row">
-                                                                <td>{i+1}</td>
+                                                                {/* <td>{i+1}</td> */}
                                                                 <td>{course.courseCode}</td>
                                                                 <td>{course.courseName}</td>
                                                                 <td> 

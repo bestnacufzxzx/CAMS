@@ -3,19 +3,46 @@ import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 import TextInput from '../../components/TextInput';
 import axios from 'axios';
+import service_uri from '../../components/variable/service_uri';
 
 
 export default class Showimportstudent extends Component {
 
     state = {
-        data: [],
-        student: [],
-        studentID:'',
-        firstname: '',
-        lastname: '',
-        email: '',
-        tel: ''
+        students:[]
     }
+
+    renderdelete(studentID){
+        // console.log(studentid)
+        return(
+            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(studentID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
+        )
+    }
+
+    handleRemove = (studentID) => {
+        console.log(studentID)
+        const url = service_uri +'admin_showuser/get_delete_studentid?studentID='+studentID;
+        axios.get(url)
+            .then(res => {
+                console.log(res);
+            })
+            alert("ลบสำเร็จ")
+            this.RefreshPage();
+    } 
+
+    RefreshPage=()=> { 
+        window.location.href = 'http://localhost:3000/admin/Showimportstudent'; 
+    }
+
+    renderedit(students){
+        let studentID = students.studentID;
+        return(
+            <Link to={'EditImportstudent/'+studentID}>
+               &nbsp; <button type="button" className="btn btn-success"> <i class="fa fa-edit" aria-hidden="true"> </i> </button>&nbsp;
+            </Link>
+        )
+    }
+
 
     componentDidMount(){
         const script = document.createElement("script");
@@ -23,34 +50,16 @@ export default class Showimportstudent extends Component {
         script.async = true;
         document.body.appendChild(script);
 
-        axios.get('http://localhost/cams_services/showimportstudent/')
+        axios.get('http://localhost/cams_server/api/admin_showuser/showusername_student')
         .then(response => {
-          this.setState({ student: response.data });
+          this.setState({ students: response.data });
         })
         .catch(error => {
           console.log("====>",error.status);
         });
-    }
 
-    onChangeHandle = (event) => {
-        let name = event.target.name;
-        let value = event.target.value;
-        this.setState({[name]: value});
-    } 
+    };
 
-    savepersonalinformation = () => {
-
-        let structure = {
-            studentID: this.state.studentID,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            email: this.state.email,
-            tel: this.state.tel,
-        }
-
-        console.log(structure);
-
-    }
 
     render() {
         return (
@@ -91,10 +100,9 @@ export default class Showimportstudent extends Component {
                                             <table id="example2" className="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                                 <thead>
                                                     <tr>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
+                                                        <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสนักศึกษา</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">นามสกุล</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ - นามสกุล</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">อีเมล์</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">เบอร์โทร</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>
@@ -102,19 +110,17 @@ export default class Showimportstudent extends Component {
                                                 </thead>
                                                 <tbody>
 
-                                                { this.state.student.map((student, i) => (
+                                                { this.state.students.map((student, i) => (
                                                     <tr role="row">
                                                     <td>{i+1}</td>
-                                                    <td></td>
                                                     <td className="sorting_1">{student.studentID}</td>
-                                                    <td>{student.firstName}</td>
-                                                    <td>{student.lastName}</td>
+                                                    <td> {student.prefix} {student.firstName }  {student.lastName}</td>
                                                     <td>{student.email}</td>
-                                                    <td>{student.phoneNumber}</td>
-                                                        <td> 
-                                                            <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default" ><i className="fa fa-edit"></i></button> 
-                                                            <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button>
-                                                        </td>
+                                                    <td>{student.phone}</td>
+                                                    <td> 
+                                                        {this.renderdelete(student.studentID)}
+                                                        {this.renderedit(student)}
+                                                    </td>
                                                     </tr>
                                                     ))
                                                     }
@@ -127,73 +133,7 @@ export default class Showimportstudent extends Component {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="modal fade" id="modal-default">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">แก้ไขข้อนักศึกษา</h4>
-                            </div>
-                            <div class="modal-body">
-                            {/* &hellip; */}
-
-                            <form onSubmit={this.savepersonalinformation}>
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        <div class="col-md-4">
-                                            <div class="form-group input-group-sm">
-                                                <label>รหัสนักศึกษา</label>
-                                                <TextInput value={this.state.studentID} inputname="idstudent" classes="form-control" placeholder="รหัสนักศึกษา" change={this.onChangeHandle} />
-                                                {/* <input type="text" class="form-control" name="" id="" placeholder="" value=""/> */}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group input-group-sm">
-                                                <label>ชื่อจริง</label>
-                                                <TextInput value={this.state.firstname} inputname="firstname" classes="form-control" placeholder="กรอกชื่อจริง" change={this.onChangeHandle} />
-                                                {/* <input type="text" class="form-control" name="" id="" placeholder="" value=""/> */}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group input-group-sm">
-                                                <label>นามสกุล</label>
-                                                <TextInput value={this.state.lastname} inputname="lastname" classes="form-control" placeholder="กรอกนามสกุล" change={this.onChangeHandle} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-12">
-                                        <div class="col-md-6">
-                                            <div class="form-group input-group-sm">
-                                                <label>อิเมล์</label>
-                                                <TextInput value={this.state.email} inputname="email" classes="form-control" placeholder="กรอกอีเมล์" change={this.onChangeHandle} />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group input-group-sm">
-                                                <label>เบอร์โทร</label>
-                                                <TextInput value={this.state.tel} inputname="tel" classes="form-control" placeholder="กรอกเบอร์โทร" change={this.onChangeHandle} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* <รูปทำไง> */}
-                            </form>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal"> ยกเลิก </button>
-                                <button type="button" class="btn btn-primary" onClick={this.savepersonalinformation}> บันทึก </button>
-                            </div>
-                            </div>
-                            {/* <!-- /.modal-content --> */}
-                        </div>
-                        {/* <!-- /.modal-dialog --> */}
-                    </div>
-                    {/* <!-- /.modal --> */}
-                </div>
+                
             </div>
      
         )

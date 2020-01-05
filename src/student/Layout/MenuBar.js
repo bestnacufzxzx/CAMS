@@ -48,7 +48,7 @@ export default class MenuBar extends Component {
                           {/* <li><Link to="/teacher/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
                         {/* </ul> */}
                       </li>  
-                          <li><Link to="/student/Checkname" ><i class="fa fa-circle-o"></i><span>ลงทะเบียนเข้าเรียน</span></Link></li>
+                          <li><Link to="/student/Listcourse" ><i class="fa fa-circle-o"></i><span>ลงทะเบียนเข้าเรียน</span></Link></li>
                           <li><Link to="/student/Timetreatment" ><i class="fa fa-circle-o"></i> <span>ประวัติเข้าเรียนของนักศึกษา</span></Link></li>
                           {/* <li><Link to="/admin/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
                 </ul>

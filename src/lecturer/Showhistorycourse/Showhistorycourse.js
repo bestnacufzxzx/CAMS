@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default class Showhistorycourse extends Component {
         componentDidMount(){
