@@ -2,19 +2,50 @@ import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import service_uri from '../../components/variable/service_uri';
 
 export default class Showlocation extends Component {
-    // componentDidMount(){
-    //     const script = document.createElement("script");
-    //     script.src = '../js/Showlocation/content.js';
-    //     script.async = true;
-    //     document.body.appendChild(script);
-    // }
+
     state = {
         locations : []
     }
 
+    renderdelete(buildingID){
+        // console.log(buildingID)
+        return(
+            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(buildingID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
+        )
+    }
+
+    handleRemove = (buildingID) => {
+        const url = service_uri +'location/delete?buildingID='+buildingID;
+        axios.get(url)
+            .then(res => {
+                console.log(res);
+            })
+            alert("ลบสำเร็จ")
+            this.RefreshPage();
+    } 
+
+    RefreshPage=()=> { 
+        window.location.href = 'http://localhost:3000/admin/Showlocation'; 
+    }
+
+    renderedit(location){
+        let buildingID = location.buildingID;
+        return(
+            <Link to={'Editlocation/'+buildingID}>
+               &nbsp; <button type="button" className="btn btn-success"> <i class="fa fa-edit" aria-hidden="true"> </i> </button>&nbsp;
+            </Link>
+        )
+    }
+
     componentDidMount(){
+        const script = document.createElement("script");
+        script.src = '../js/Showlocation/content.js';
+        script.async = true;
+        document.body.appendChild(script);
+
 
         axios.get('http://localhost/cams_server/api/location/get_all')
         .then(response => {
@@ -23,6 +54,8 @@ export default class Showlocation extends Component {
         .catch(error => {
           console.log("====>",error.status);
         });
+
+
 
     };
 
@@ -77,8 +110,10 @@ export default class Showlocation extends Component {
                                                             <td>{location.buildingName}</td>
                                                             <td>{location.roomname}</td>
                                                             <td> 
-                                                                <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default"><i className="fa fa-edit"></i></button>
-                                                                <button type="button" className="btn btn-danger" ><i className="fa fa-trash"></i></button>
+                                                                {this.renderedit(location)}
+                                                                {this.renderdelete(location.buildingID)}
+                                                                {/* <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default"><i className="fa fa-edit"></i></button>
+                                                                <button type="button" className="btn btn-danger" ><i className="fa fa-trash"></i></button> */}
                                                             </td>
                                                         </tr>
                                                     ))

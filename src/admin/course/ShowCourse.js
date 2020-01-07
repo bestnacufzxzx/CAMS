@@ -9,6 +9,16 @@ export default class ShowCourse extends Component {
         courses: []
     }
 
+    renderviewteaching(course){
+        let courseID = course.courseID;
+
+        return(
+            <Link to={'Showteaching/'+courseID}>
+                &nbsp; <button type="button" className="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"> </i> </button>&nbsp;
+            </Link>
+        )
+    }
+
     renderdelete(courseID){
         return(
             <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(courseID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
@@ -48,7 +58,7 @@ export default class ShowCourse extends Component {
     render(){
         return(
             <div className="content-wrapper">
-                <Breadcrumb header="นำเข้ารายวิชา" subheader="ค้นหา" arrow={
+                <Breadcrumb header="จัดการรายวิชา" subheader="ค้นหา" arrow={
                     [
                         {"icon":"fa fa-dashboard", "title":"นำเข้ารายวิชา", "link":"#", "active":"active"}
                     ]
@@ -62,10 +72,10 @@ export default class ShowCourse extends Component {
                                 <div class="box-header">
                                     <div className="row">
                                         <div className="col-md-10">
-                                            <div className="input-group">
+                                            {/* <div className="input-group">
                                                 <input type="text" className="form-control" />
                                                 <span className="input-group-addon"><i className="fa fa-search" aria-hidden="true"></i></span>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         <div className="col-md-2">
                                             <Link to="/admin/course/ImportCourse">
@@ -104,6 +114,7 @@ export default class ShowCourse extends Component {
                                                             {/* <td>{course.courseCredits}</td> */}
                                                             {/* <td>1.7</td> */}
                                                             <td> 
+                                                                {this.renderviewteaching(course)}
                                                                 {this.renderdelete(course.courseID)}
                                                                 {/* <Link to={'/admin/course/Updatacourse/'+course.courseID} ><button type="button" className="btn btn-warning" onClick={this.updateCourse} ><i className="fa fa-edit"></i></button></Link> <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button> */}
                                                             </td>

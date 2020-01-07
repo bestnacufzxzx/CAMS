@@ -62,8 +62,8 @@ import ShowCourse from './admin/course/ShowCourse';
 import Updatacourse from './admin/course/Updatacourse';
 import ImportCourse from './admin/course/ImportCourse';
 import Showlocation from './admin/setlocationmap/Showlocation';
-import Editlocation from './admin/setlocationmap/editlocatonmap/Editlocation';
-import Createlocation from './admin/setlocationmap/createlocation/Createlocation';
+import Editlocation from './admin/setlocationmap/Editlocatonmap/Editlocation';
+import Createlocation from './admin/setlocationmap/Createlocation/Createlocation';
 import Showimportteacher from './admin/Importteacher/Showimportteacher';
 import Createimportteacher from './admin/Importteacher/importteacher/Createimportteacher';
 import Showimportstudent from './admin/Importstudent/Showimportstudent';
@@ -76,6 +76,8 @@ import ShowAccountTeacher from './admin/AccountTeacher/ShowAccountTeacher';
 import CreateAccountTeacher from './admin/AccountTeacher/CreateAccountTeacher/CreateAccountTeacher';
 import EditAccountTeacher from './admin/AccountTeacher/EditAccountTeacher/EditAccountTeacher';
 import EditAccountStudent from './admin/AccountStudent/EditAccountStudent/EditAccountStudent';
+import Showteaching from './admin/course/Showteaching';
+import Createteaching from './admin/course/Createteaching';
 
 
 // page lecturer
@@ -138,7 +140,7 @@ export default class App extends Component{
           <Route exact path="/admin/course/ImportCourse" component={ImportCourse} />
           <Route exact path="/admin/course/Updatacourse" component={Updatacourse} />
           <Route exact path="/admin/Showlocation" component={Showlocation} />
-          <Route exact path="/admin/Editlocation" component={Editlocation} />
+          <Route exact path="/admin/Editlocation/:buildingID" component={Editlocation} />
           <Route exact path="/admin/Createlocation" component={Createlocation} />
           <Route exact path="/admin/Showimportteacher" component={Showimportteacher} />
           <Route exact path="/admin/Createimportteacher" component={Createimportteacher} />
@@ -152,6 +154,10 @@ export default class App extends Component{
           <Route exact path="/admin/CreateAccountTeacher" component={CreateAccountTeacher} />
           <Route exact path="/admin/EditAccountTeacher/:user_id" component={EditAccountTeacher} />
           <Route exact path="/admin/EditAccountStudent/:user_id" component={EditAccountStudent} />
+          <Route exact path="/admin/Showteaching/:courseID" component={Showteaching} />
+          <Route exact path="/admin/Createteaching/" component={Createteaching} />
+
+
 
 
 

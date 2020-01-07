@@ -31,7 +31,6 @@ export default class Createimportstudent extends Component {
             temp.name = v[1];
             temp.tel = v[2];
             temp.username = v[3];
-
             file.push(temp);
         });
         this.setState({

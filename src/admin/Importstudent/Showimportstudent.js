@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
-import TextInput from '../../components/TextInput';
 import axios from 'axios';
 import service_uri from '../../components/variable/service_uri';
 
@@ -118,8 +117,8 @@ export default class Showimportstudent extends Component {
                                                     <td>{student.email}</td>
                                                     <td>{student.phone}</td>
                                                     <td> 
-                                                        {this.renderdelete(student.studentID)}
                                                         {this.renderedit(student)}
+                                                        {this.renderdelete(student.studentID)}
                                                     </td>
                                                     </tr>
                                                     ))

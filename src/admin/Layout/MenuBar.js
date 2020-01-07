@@ -60,6 +60,7 @@ export default class MenuBar extends Component {
                         </ul>
                       </li>       
 
+
                       <li className="treeview">
                         <Link>
                           <i className="fa fa-tasks"></i> <span>จัดการบัญชีผู้ใช้งาน</span>
@@ -70,8 +71,10 @@ export default class MenuBar extends Component {
                         <ul className="treeview-menu">
                           <li><Link to="/admin/ShowAccountTeacher" ><i class="fa fa-circle-o"></i>จัดการบัญชีอาจารย์</Link></li>
                           <li><Link to="/admin/ShowAccountStudent"><i class="fa fa-circle-o"></i>จัดการบัญชีนักศึกษา</Link></li>
-                        </ul>
+                        </ul> 
                       </li>
+                      {/* <li><Link to="/admin/Showteaching"><i class="fa fa-circle-o"></i>จัดการอาจารย์ผู้สอนในรายวิชา</Link></li> */}
+
         
                 </ul>
                 

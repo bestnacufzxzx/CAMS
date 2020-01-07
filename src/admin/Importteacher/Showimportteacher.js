@@ -11,6 +11,7 @@ export default class Showimportteacher extends Component {
         lecturers:[]
     }
 
+
     renderdelete(lecturerid){
         // console.log(lecturerid)
         return(
@@ -98,7 +99,6 @@ export default class Showimportteacher extends Component {
                                                 <thead>
                                                     <tr   >
                                                         <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
-                                                        {/* <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รูปภาพ</th> */}
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">อีเมล์</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">เบอร์โทร</th>
@@ -115,8 +115,8 @@ export default class Showimportteacher extends Component {
                                                             <td>{lecturers.email}</td>
                                                             <td>{lecturers.phoneNumber}</td>
                                                             <td> 
-                                                                {this.renderdelete(lecturers.lecturerID)}
                                                                 {this.renderedit(lecturers)}
+                                                                {this.renderdelete(lecturers.lecturerID)}
                                                                 {/* <Link to={'/admin/course/Updatacourse/'+course.courseID} ><button type="button" className="btn btn-warning" onClick={this.updateCourse} ><i className="fa fa-edit"></i></button></Link> <button type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button> */}
                                                             </td>
                                                         </tr>
@@ -131,67 +131,6 @@ export default class Showimportteacher extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div>
-                    <div class="modal fade" id="modal-default">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">แก้ไขข้อมูลอาจารย์</h4>
-                            </div>
-                            <div class="modal-body">
-                            {/* &hellip; */}
-
-                            <form onSubmit={this.savepersonalinformation}>
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        <div class="col-md-4">
-                                            <div class="form-group input-group-sm">
-                                                <label>ชื่อ</label>
-                                                <TextInput value={this.state.firstname} inputname="firstname" classes="form-control" placeholder="กรอกชื่อจริง" change={this.onChangeHandle} />
-                                                {/* <input type="text" class="form-control" name="" id="" placeholder="" value=""/> */}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group input-group-sm">
-                                                <label>นามสกุล</label>
-                                                <TextInput value={this.state.lastname} inputname="lastname" classes="form-control" placeholder="กรอกนามสกุล" change={this.onChangeHandle} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <div class="col-md-4">
-                                            <div class="form-group input-group-sm">
-                                                <label>อิเมล์</label>
-                                                <TextInput value={this.state.email} inputname="email" classes="form-control" placeholder="กรอกอีเมล์" change={this.onChangeHandle} />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group input-group-sm">
-                                                <label>เบอร์โทร</label>
-                                                <TextInput value={this.state.tel} inputname="tel" classes="form-control" placeholder="กรอกเบอร์โทร" change={this.onChangeHandle} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* <รูปทำไง> */}
-                            </form>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal"> ยกเลิก </button>
-                                <button type="button" class="btn btn-primary" onClick={this.savepersonalinformation}> บันทึก </button>
-                            </div>
-                            </div>
-                            {/* <!-- /.modal-content --> */}
-                        </div>
-                        {/* <!-- /.modal-dialog --> */}
-                    </div>
-                    {/* <!-- /.modal --> */}
                 </div>
             </div>
             

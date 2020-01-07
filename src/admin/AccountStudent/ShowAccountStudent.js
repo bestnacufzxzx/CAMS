@@ -10,13 +10,6 @@ export default class ShowAccountStudent extends Component {
         accountusers: [],
     }
 
-    componentDidMount(){
-        const script = document.createElement("script");
-        script.src = '../js/Showimportteacher/content.js';
-        script.async = true;
-        document.body.appendChild(script);
-    }
-
     renderdelete(user_id){
         return(
             <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(user_id)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
@@ -131,8 +124,8 @@ export default class ShowAccountStudent extends Component {
                                                             <td className="sorting_1"> {accountusers.prefix} {accountusers.firstName} {accountusers.lastName}</td>
                                                             <td>{accountusers.email}</td>
                                                             <td> 
-                                                                {/* {this.renderdelete(accountusers.user_id)} */}
                                                                 {this.renderedit(accountusers)}
+                                                                {this.renderdelete(accountusers.user_id)}
                                                             </td>
                                                         </tr>
                                                     ))
