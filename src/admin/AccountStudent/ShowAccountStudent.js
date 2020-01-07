@@ -72,7 +72,7 @@ export default class ShowAccountStudent extends Component {
                     ]
                 } />
                 <div className="content body">
-                    <div class="row">
+                    {/* <div class="row">
                         <div class="col-md-12">
                             <div class="box theader-search-sky">
                                 <div class="box-header">                   
@@ -98,7 +98,7 @@ export default class ShowAccountStudent extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="row">
                         <div className="col-md-12">
                             <div className="box box-primary">
