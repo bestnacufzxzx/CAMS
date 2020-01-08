@@ -42,7 +42,7 @@ export default class Showteaching extends Component {
                 console.log(res);
             })
             alert("ลบสำเร็จ")
-            // this.RefreshPage();
+            this.RefreshPage();
     } 
 
     RefreshPage=()=> { 

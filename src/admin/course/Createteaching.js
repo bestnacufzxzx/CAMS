@@ -17,7 +17,8 @@ state = {
     lecturers:'',
     lecturerID:'',
     firstName:'',
-    lastName:''
+    lastName:'',
+    roleID:''
 }
 
 handleChange = (event) => {
@@ -28,10 +29,12 @@ handleChange = (event) => {
 }
 
 RefreshPage = () => { 
-    window.location.href = 'http://localhost:3000/lecturer/Course'; 
+    window.location.href = 'http://localhost:3000/admin/Showteaching/'+this.state.courseID; 
 }
 
 componentDidMount(){
+    const  courseID  = this.props.match.params.courseID;
+    this.setState({courseID});
     // this.getAllCourse();
     this.getAlllecturer();
 }
@@ -48,11 +51,11 @@ getAlllecturer = () => {
 }
 handleSubmit = (event) =>{
     event.preventDefault();
-    let lecturerID = localStorage.getItem("lecturerID");
-    axios.post(service_uri+'lecturers/createcouresbylecturer', {
+    axios.post(service_uri+'admin_teaching/update_status_teaching', {
 
-        lecturerID : lecturerID,
+        lecturerID : this.state.lecturerID,
         courseID: this.state.courseID,
+        roleID: this.state.roleID,
         })
         .then(res => {
     
@@ -65,6 +68,7 @@ handleSubmit = (event) =>{
 }
 
     render() {
+        // console.log(this.state.lecturerID, this.state.courseID, this.state.roleID)
         return (
    
              <div className="content-wrapper">
@@ -95,8 +99,8 @@ handleSubmit = (event) =>{
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group input-group-sm">
-                                                <label for="lecturers" type="text" class="col-form-label">ประเภทอาจารย์  </label>
-                                                <select name="" class="form-control" onChange={this.handleChange}>
+                                                <label for="teaching" type="text" class="col-form-label">ประเภทอาจารย์  </label>
+                                                <select name="roleID" class="form-control" onChange={this.handleChange}>
                                                     <option class="active">ประเภทอาจารย์</option>
                                                     <option value="3">อาจารย์ผู้สอน</option>
                                                     <option value="4">อาจารย์ผู้ประสานรายวิชา</option>
@@ -110,7 +114,7 @@ handleSubmit = (event) =>{
                                             <button type="submit" className="pull-right btn btn-success" onClick={ this.handleChange }>
                                                 <i className="fa fa-arrow-circle-right"></i> บันทึก
                                             </button>
-                                            {/* <Link to={'/Showteaching/'+courseID}><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link> */}
+                                            <Link to={'/admin/Showteaching/'+this.state.courseID}><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link>
                                         </div>
                                     </form>
                                 </div>
