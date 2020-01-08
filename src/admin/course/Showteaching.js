@@ -3,7 +3,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 // import Button from '../../components/Button';
 import axios from 'axios';
-// import service_uri from '../../components/variable/service_uri';
+import service_uri from '../../components/variable/service_uri';
 
 export default class Showteaching extends Component {
 
@@ -26,6 +26,29 @@ export default class Showteaching extends Component {
             )
         }
     }
+
+    renderdelete(teachingID){
+        console.log(teachingID)
+        return(
+            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(teachingID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
+        )
+    }
+
+
+    handleRemove = (teachingID) => {
+        const url = service_uri +'admin_showcourse/delete?teachingID='+teachingID;
+        axios.get(url)
+            .then(res => {
+                console.log(res);
+            })
+            alert("ลบสำเร็จ")
+            // this.RefreshPage();
+    } 
+
+    RefreshPage=()=> { 
+        window.location.href = 'http://localhost:3000/admin/Showteaching/'+this.state.courseID; 
+    }
+
     componentDidMount(){
 
         const script = document.createElement("script");
@@ -34,6 +57,7 @@ export default class Showteaching extends Component {
         document.body.appendChild(script);
 
         const  courseID  = this.props.match.params.courseID;
+        this.setState({courseID});
         console.log(courseID)
         axios.get('http://localhost/cams_server/api/Admin_teaching/get_teaching?courseID='+courseID)
         .then(res => {
@@ -46,6 +70,7 @@ export default class Showteaching extends Component {
 
 
     render() {
+        
         return (
    
              <div className="content-wrapper">
@@ -69,7 +94,7 @@ export default class Showteaching extends Component {
                                             </div> */}
                                         </div>
                                         <div className="col-md-2">
-                                            <Link to="/admin/Createteaching">
+                                            <Link to={'/admin/Createteaching/'+this.state.courseID}>
                                                 <button type="button" className="btn btn-block btn-info"><i className="fa fa-plus" aria-hidden="true"></i> สร้างผู้สอนตามรายวิชา</button>
                                             </Link>
                                         </div>
@@ -105,7 +130,7 @@ export default class Showteaching extends Component {
                                                             <td>{this.chackrole(teaching.roleID)}</td>
                                                             <td className="text-center">
                                                                 {/* {this.rendereditcourse(teaching)} */}
-                                                                {/* {this.renderdelete(teaching.teachingID)} */}
+                                                                {this.renderdelete(teaching.teachingID)}
                                                             </td>
                                                         </tr>
                                                     ))}

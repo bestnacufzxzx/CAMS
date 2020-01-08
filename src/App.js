@@ -155,7 +155,7 @@ export default class App extends Component{
           <Route exact path="/admin/EditAccountTeacher/:user_id" component={EditAccountTeacher} />
           <Route exact path="/admin/EditAccountStudent/:user_id" component={EditAccountStudent} />
           <Route exact path="/admin/Showteaching/:courseID" component={Showteaching} />
-          <Route exact path="/admin/Createteaching/" component={Createteaching} />
+          <Route exact path="/admin/Createteaching/:courseID/" component={Createteaching} />
 
 
 

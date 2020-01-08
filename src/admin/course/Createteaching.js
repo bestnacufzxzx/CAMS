@@ -32,19 +32,10 @@ RefreshPage = () => {
 }
 
 componentDidMount(){
-    this.getAllCourse();
+    // this.getAllCourse();
     this.getAlllecturer();
 }
 
-getAllCourse = () => {
-    axios.get(service_uri+'lecturers/getAllourse')
-    .then(res => {
-        this.setState({ Allourses: res.data });
-    })
-    .catch(error => {
-        console.log("====>",error.status);
-    });
-}
 
 getAlllecturer = () => {
     axios.get(service_uri+'Admin_teaching/get_all_lecturer')
@@ -85,25 +76,13 @@ handleSubmit = (event) =>{
 
                 <div className="content body">
                     <div className="row">
-                        <div className="col-md-8">
+                        <div className="col-md-6">
                             <div className="box box-primary">
                                 <div className="box-body">
                                     <br />
                                     <form onSubmit={this.handleSubmit}>
                                     <div className="row">
-                                        <div className="col-md-4">
-                                            <div class="form-group input-group-sm">
-                                                <label for="courseCode" type="text" class="col-form-label">รหัสวิชา - ชื่อวิชา
-                                                </label>
-                                                <select name="courseID" class="form-control" onChange={this.handleChange}>
-                                                    <option>เลือกรายวิชา</option>
-                                                { this.state.Allourses.map((allourse,i) => (
-                                                    <option value={allourse.courseID}>{allourse.courseCode+' '+allourse.courseName}</option>
-                                                )) }
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group input-group-sm">
                                                 <label for="lecturers" type="text" class="col-form-label">ชื่ออาจารย์</label>
                                                 <select name="lecturerID" class="form-control" onChange={this.handleChange}>
@@ -114,7 +93,7 @@ handleSubmit = (event) =>{
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group input-group-sm">
                                                 <label for="lecturers" type="text" class="col-form-label">ประเภทอาจารย์  </label>
                                                 <select name="" class="form-control" onChange={this.handleChange}>
@@ -131,7 +110,7 @@ handleSubmit = (event) =>{
                                             <button type="submit" className="pull-right btn btn-success" onClick={ this.handleChange }>
                                                 <i className="fa fa-arrow-circle-right"></i> บันทึก
                                             </button>
-                                            <Link to="/lecturer/Course"><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link>
+                                            {/* <Link to={'/Showteaching/'+courseID}><button type="button" className="pull-right btn btn-danger"><i className="fa fa-arrow-circle-left"></i>  กลับ </button> </Link> */}
                                         </div>
                                     </form>
                                 </div>

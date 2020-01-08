@@ -31,14 +31,14 @@ export default class Showlocation extends Component {
         window.location.href = 'http://localhost:3000/admin/Showlocation'; 
     }
 
-    renderedit(location){
-        let buildingID = location.buildingID;
-        return(
-            <Link to={'Editlocation/'+buildingID}>
-               &nbsp; <button type="button" className="btn btn-success"> <i class="fa fa-edit" aria-hidden="true"> </i> </button>&nbsp;
-            </Link>
-        )
-    }
+    // renderedit(location){
+    //     let buildingID = location.buildingID;
+    //     return(
+    //         <Link to={'Editlocation/'+buildingID}>
+    //            &nbsp; <button type="button" className="btn btn-success"> <i class="fa fa-edit" aria-hidden="true"> </i> </button>&nbsp;
+    //         </Link>
+    //     )
+    // }
 
     componentDidMount(){
         const script = document.createElement("script");
@@ -110,7 +110,7 @@ export default class Showlocation extends Component {
                                                             <td>{location.buildingName}</td>
                                                             <td>{location.roomname}</td>
                                                             <td> 
-                                                                {this.renderedit(location)}
+                                                                {/* {this.renderedit(location)} */}
                                                                 {this.renderdelete(location.buildingID)}
                                                                 {/* <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#modal-default"><i className="fa fa-edit"></i></button>
                                                                 <button type="button" className="btn btn-danger" ><i className="fa fa-trash"></i></button> */}
