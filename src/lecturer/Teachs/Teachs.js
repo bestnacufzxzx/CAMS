@@ -13,14 +13,14 @@ export default class Teachs extends Component {
         sum : null
     }
 
-    editteachcourse(teach){
-        let classID = teach.classID;
-        return(
-            <Link to={'/lecturer/EditTeachCourse/'+classID}>
-                <button type="button" className="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"> </i> </button>&nbsp;
-            </Link>
-        )
-    }
+    // editteachcourse(teach){
+    //     let classID = teach.classID;
+    //     return(
+    //         <Link to={'/lecturer/EditTeachCourse/'+classID}>
+    //             <button type="button" className="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"> </i> </button>&nbsp;
+    //         </Link>
+    //     )
+    // }
 
     renderdelete(classID){
         return(
@@ -34,7 +34,16 @@ export default class Teachs extends Component {
         // console.log(this.state.classID)
     }
 
-    
+    renderstartdate(startdate){
+        // let d1 = new Date(startdate);
+        // let Da = d1.getDate();
+        // let Mon = d1.getMonth();
+        // let Year = d1.getFullYear();
+        // let startdate = (Year + "-" + Mon + "-" + Da);
+        return(
+            startdate
+        )
+    }
     //   renderUserName = (teach) => {
     //     const firstName = (teach.firstName);
     //     const lastName = (teach.lastName);
@@ -46,7 +55,7 @@ export default class Teachs extends Component {
     //     console.log(this.courseID)
     //   }
 
-    handleRemove = (classID) => {
+    handleRemove = (classID) => { 
 
         console.log(classID);
         const url = service_uri +'lecturers/get_delete_classid?classID='+classID;
@@ -124,10 +133,10 @@ export default class Teachs extends Component {
          
                                             </div>
                                             <div className="col-md-3 form-group">
-                                                <input type="text" className="form-control" name="searchText" value="" placeholder="ค้นหา"/>
+                                                {/* <input type="text" className="form-control" name="searchText" value="" placeholder="ค้นหา"/> */}
                                             </div>
                                             <div className="col-md-2 form-group">
-                                                <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button> 
+                                                {/* <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button>  */}
                                             </div>
                                         </form>
                                         <div className="col-md-2">
@@ -152,10 +161,11 @@ export default class Teachs extends Component {
                                                 <thead>
                                                     <tr   >
                                                         <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
+                                                        <th className="col-sm-3" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ห้องเรียน</th>
                                                         <th className="col-sm-3" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสวิชา</th>
                                                         <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">วันที่</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">เวลาเข้าเรียน - เวลาเลิกเรียน</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ครั้งที่สอน</th>
+                                                        <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ครั้งที่สอน</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" >การจัดการ</th>
                                                     </tr>
                                                 </thead>
@@ -163,12 +173,13 @@ export default class Teachs extends Component {
                                                     { this.state.teachs.map((teach, i) => (
                                                         <tr role="row">
                                                             <td>{i+1}</td>
+                                                            <td>{teach.buildingName} {teach.roomname}</td>
                                                             <td>{teach.courseName}</td>
-                                                            <td>{teach.startdate}</td>
+                                                            <td>{this.renderstartdate(teach.startdate)}</td>
                                                             <td>{teach.starttime +' - '+ teach.endtime} น.</td>
-                                                            <td>{1} </td>
+                                                            <td>{1+i} </td>
                                                             <td>  
-                                                                {this.editteachcourse(teach)}
+                                                                {/* {this.editteachcourse(teach)} */}
                                                                 {this.renderdelete(teach.classID)}
                                                             </td>
                                                         </tr>

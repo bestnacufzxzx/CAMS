@@ -199,6 +199,9 @@ export default class CreateTeachCourse extends Component {
             console.log("====>",error.status);
             });
     }
+    RefreshPage=()=> { 
+        window.location.href = 'http://localhost:3000/lecturer/Teachs/'+this.state.courseID; 
+    }
 
        render() {
             console.log(this.state.courseID);

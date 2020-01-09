@@ -1,29 +1,33 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb'
 import axios from 'axios';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-export default class Historysbystudent extends Component {
+export default class Viewhistorystudent extends Component {
   
     state = {
         historys : [],
-        course:''
+        i : '0'
     }
-    
-    renderhistoryid(courseID){
-        return(
-            <Link to={'/lecturer/Viewhistorystudent/'+courseID}>
-                <button type="button" className="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"> </i> </button>
-            </Link> 
-        )
+    numeol(i){
+        // let classID = i+1
+        // this.setState(classID)
     }
+    // renderhistoryid(){
+    //     // let history = (history);
+    //     return(
+    //         <Link to={'Historysbystudent'}>
+    //             <button type="button" className="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"> </i> </button>
+    //         </Link> 
+    //     )
+    // }
     
     
     componentDidMount(){
-        const  HistorysbystudentcourseID = this.props.match.params.HistorysbystudentcourseID;
-        let courseID = HistorysbystudentcourseID;
-        
-        axios.get('http://localhost/cams_server/api/lecturers/gethistorytimetreatment?courseID='+courseID)
+        const  courseID = this.props.match.params.courseID;
+    //     let courseID = HistorysbystudentcourseID;
+        let classID = 1;
+        axios.get('http://localhost/cams_server/api/lecturers/get_id_history_student?courseID='+courseID+"&classID="+classID)
         .then(res => {
         this.setState({ historys: res.data });
         })
@@ -31,14 +35,14 @@ export default class Historysbystudent extends Component {
         console.log("====>",error.status);
         });
     
-                // const script = document.createElement("script");
-                // script.src = '../js/Showimportteacher/content.js';
-                // script.async = true;
-                // document.body.appendChild(script);
+    //             // const script = document.createElement("script");
+    //             // script.src = '../js/Showimportteacher/content.js';
+    //             // script.async = true;
+    //             // document.body.appendChild(script);
         }
 
     render() {
-        // console.log(this.state.Course)
+        console.log(this.state.classID)
         return (
    
              <div className="content-wrapper">
@@ -60,23 +64,19 @@ export default class Historysbystudent extends Component {
                                             <table id="example1" class="table table-bordered table-striped" role="grid" >
                                                 <thead>
                                                     <tr>
-                                                        <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสศึกษา</th>
-                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ชื่อ - นามสกุล</th>
+                                                        <th className="col-sm-1" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">คาบที่</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">วัน-เวลา</th>
+                                                        <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">สถานะ</th>
                                                         <th className="col-sm-2" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>    
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     { this.state.historys.map((history, i) => (
                                                             <tr role="row">
-                                                                <td>{i+1}</td>
-                                                                {/* <td>{history}</td> */}
-                                                                <td>{history.studentID}</td>
-                                                                <td>{history.firstName + " " + history.lastName}</td>
-                                                                {/* <td>{history.lastName}</td> */}
+                                                                <td>{this.numeol()}{i+1}</td>
+                                                                <td>{history.datetime}</td>
                                                                 <td className="text-center">
-                                                                {this.renderhistoryid(history.courseID)}
-                                                            </td>
+                                                                </td>
                                                             </tr>
                                                         ))}
                                                 </tbody>
