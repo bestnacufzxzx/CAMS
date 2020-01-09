@@ -52,6 +52,7 @@ export default class MenuBar extends Component {
                           <li><Link to="/lecturer/Showstudentincourse" ><i class="fa fa-circle-o"></i> <span>กำหนดนักศึกษาในรายวิชา</span></Link></li>
                           <li><Link to="/lecturer/Course"><i class="fa fa-circle-o"></i><span>กำหนดการเรียนการสอน</span></Link></li>
                           <li><Link to="/lecturer/Timetreatment" ><i class="fa fa-circle-o"></i> <span>ประวัติเข้าเรียนของนักศึกษา</span></Link></li>
+                          <li><Link to="/lecturer/Timetreatment" ><i class="fa fa-circle-o"></i> <span>ปรับสถานะการเข้าเรียน</span></Link></li>
                           {/* <li><Link to="/admin/Course"><i class="fa fa-circle-o"></i>กำหนดการเรียนการสอน</Link></li> */}
                 </ul>
             </section>

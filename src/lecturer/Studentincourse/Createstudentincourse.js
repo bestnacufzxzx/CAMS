@@ -12,15 +12,15 @@ export default class Createstudentincourse extends Component {
         courses : [],
     }
 
-    deletestudentincourseID(courseID){
+    deletestudentincourseID(studentsregeterID){
         return(
-            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(courseID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
+            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(studentsregeterID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
         )
     }
 
-    handleRemove = (courseID) => {
+    handleRemove = (studentsregeterID) => {
 
-        const url = service_uri +'admin_showcourse/get_delete_courseid?courseID='+courseID;
+        const url = service_uri +'admin_showcourse/get_delete_studentsregeter?studentsregeterID='+studentsregeterID;
         axios.get(url)
             .then(res => {
                 console.log(res);
@@ -52,7 +52,9 @@ export default class Createstudentincourse extends Component {
         console.log("====>",error.status);
         });
     }
-   
+    RefreshPage = () => { 
+        window.location.href = 'http://localhost:3000/lecturer/Createstudentincourse/'+this.state.courseID; 
+    }
 
     render() {
         return (
@@ -111,7 +113,7 @@ export default class Createstudentincourse extends Component {
                                                             <td>{i+1}</td>
                                                             <td>{course.prefix} {course.firstName} {course.lastName}</td>
                                                             <td className="text-center">
-                                                                {this.deletestudentincourseID(course.courseID)}
+                                                                {this.deletestudentincourseID(course.studentsregeterID)}
                                                             </td>
                                                         </tr>
                                                     ))}

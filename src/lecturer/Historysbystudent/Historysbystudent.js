@@ -10,9 +10,11 @@ export default class Historysbystudent extends Component {
         course:''
     }
     
-    renderhistoryid(courseID){
+    renderhistoryid(student){
+        let studentID = student.studentID;
+        let courseID = student.courseID;
         return(
-            <Link to={'/lecturer/Viewhistorystudent/'+courseID}>
+            <Link to={'/lecturer/Viewhistorystudent/'+studentID+"/"+courseID}>
                 <button type="button" className="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"> </i> </button>
             </Link> 
         )
@@ -75,7 +77,7 @@ export default class Historysbystudent extends Component {
                                                                 <td>{history.firstName + " " + history.lastName}</td>
                                                                 {/* <td>{history.lastName}</td> */}
                                                                 <td className="text-center">
-                                                                {this.renderhistoryid(history.courseID)}
+                                                                {this.renderhistoryid(history)}
                                                             </td>
                                                             </tr>
                                                         ))}

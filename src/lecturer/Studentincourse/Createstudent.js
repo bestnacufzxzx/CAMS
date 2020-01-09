@@ -25,7 +25,7 @@ handleChange = (event) => {
 }
 
 RefreshPage = () => { 
-    window.location.href = 'http://localhost:3000/Createstudentincourse/'+this.state.courseID; 
+    window.location.href = 'http://localhost:3000/lecturer/Createstudentincourse/'+this.state.courseID; 
 }
 
 componentDidMount(){

@@ -181,7 +181,7 @@ export default class App extends Component{
           <Route exact path="/lecturer/Showstudentincourse" component={Showstudentincourse} /> 
           <Route exact path="/lecturer/Createstudentincourse/:courseID" component={Createstudentincourse} /> 
           <Route exact path="/lecturer/Createstudent/:courseID" component={Createstudent} /> 
-          <Route exact path="/lecturer/Viewhistorystudent/:courseID" component={Viewhistorystudent} /> 
+          <Route exact path="/lecturer/Viewhistorystudent/:studentID/:courseID" component={Viewhistorystudent} /> 
 
 
           

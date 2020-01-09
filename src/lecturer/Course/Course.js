@@ -76,10 +76,10 @@ export default class Course extends Component {
          
                                             </div>
                                             <div className="col-md-3 form-group">
-                                                <input type="text" className="form-control" name="searchText" value="" placeholder="ค้นหา"/>
+                                                {/* <input type="text" className="form-control" name="searchText" value="" placeholder="ค้นหา"/> */}
                                             </div>
                                             <div className="col-md-2 form-group">
-                                                <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button> 
+                                                {/* <button type="submit" className="btn btn-block btn-info pull-right"><i class="fa fa-search" aria-hidden="true"></i> ค้นหา</button>  */}
                                             </div>
                                         </form>
                                         <div className="col-md-2">
