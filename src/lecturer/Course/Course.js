@@ -22,25 +22,28 @@ export default class Course extends Component {
         )
     }
 
-    renderdelete(teachingID){
+    renderdelete(course){
         return(
-            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(teachingID)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
+            <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(course)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
         )
     }
     RefreshPage=()=> { 
         window.location.href = 'http://localhost:3000/lecturer/Course'; 
     }
-    handleRemove = (teachingID) => {
-
-        console.log(teachingID);
-        const url = service_uri +'lecturers/get_delete?teachingID='+teachingID;
+    handleRemove = (course) => {
+        let teachingID = course.teachingID;
+        let courseID = course.courseID;
+        console.log(teachingID+"asdasd  "+courseID);
+        const url = service_uri +'lecturers/get_delete?teachingID='+teachingID+"&courseID="+courseID;
         axios.get(url)
             .then(res => {
-                console.log(res);
-                // alert("ลบสำเร็จ")
-            })
-            alert("ลบสำเร็จ")
+                alert("บันทึกสำเร็จ")
             this.RefreshPage();
+            })
+                .catch(error => {
+                console.log("====>",error.status);
+                alert("มีนักศึกษาลงทะเบียนในรายวิชา")
+            });
     } 
 
     componentDidMount(){
@@ -120,7 +123,7 @@ export default class Course extends Component {
                                                             <td className="text-center">
                                                                 {this.rendercourseID(course)}
                                                                 {/* {this.rendereditcourse(course)} */}
-                                                                {this.renderdelete(course.teachingID)}
+                                                                {this.renderdelete(course)}
                                                             </td>
                                                         </tr>
                                                     ))}

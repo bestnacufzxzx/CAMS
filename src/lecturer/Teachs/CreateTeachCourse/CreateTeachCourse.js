@@ -177,6 +177,9 @@ export default class CreateTeachCourse extends Component {
         let date = this.state.startDate;
         let endcheck = this.state.endcheck;
         let startcheck = this.state.startcheck;
+        if (this.state.courseID == "เลือกห้องเรียน" ){
+            alert("กรุณาเลือกห้องเรียน")
+        }
         event.preventDefault();
         // let lecturerID = localStorage.getItem("lecturerID");
         axios.post(service_uri+'lecturers/createclassbyTeachs', {
@@ -197,6 +200,7 @@ export default class CreateTeachCourse extends Component {
             })
             .catch(error => {
             console.log("====>",error.status);
+            alert("วันที่ซ้ำ")
             });
     }
     RefreshPage=()=> { 
@@ -324,7 +328,7 @@ export default class CreateTeachCourse extends Component {
                                                     <label for="courseName" type="text" class="col-form-label">เวลาสิ้นการลงเวลาเข้าเรียน</label> : 
                                                     <DatePicker 
                                                         selected={this.state.endcheck}
-                                                        onChange={date => this.handleChangeStartcheckDate(date)}
+                                                        onChange={date => this.handleChangeEndcheckDate(date)}
                                                         showTimeSelect
                                                         showTimeSelectOnly
                                                         timeIntervals={15}
