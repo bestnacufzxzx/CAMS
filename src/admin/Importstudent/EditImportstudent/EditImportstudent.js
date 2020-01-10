@@ -58,6 +58,7 @@ export default class EditImportstudent extends Component {
         })
         .catch(error => {
             console.log("====>",error.status);
+            alert("กรุณากรอกข้อมูลให้ครบ")
         });
     }
 

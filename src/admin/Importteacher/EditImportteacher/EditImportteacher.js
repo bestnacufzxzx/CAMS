@@ -64,6 +64,7 @@ export default class EditImportteacher extends Component {
         })
         .catch(error => {
             console.log("====>",error.status);
+            alert("กรุณากรอกข้อมูลให้ครบ")
         });
     }
 
@@ -127,7 +128,7 @@ export default class EditImportteacher extends Component {
                                                 <div class="col-md-4">
                                                     <div class="form-group input-group-sm">
                                                         <label>เบอร์โทร</label>
-                                                        <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange}/>
+                                                        <input type="number" class="form-control" name="phoneNumber" id="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange}/>
                                                     </div>
                                                 </div>
                                             </div>

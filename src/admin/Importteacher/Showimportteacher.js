@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
-import TextInput from '../../components/TextInput';
+// import TextInput from '../../components/TextInput';
 // import Button from '../../components/Button';
 import axios from 'axios';
 import service_uri from '../../components/variable/service_uri';
@@ -13,7 +13,6 @@ export default class Showimportteacher extends Component {
 
 
     renderdelete(lecturerid){
-        // console.log(lecturerid)
         return(
             <button type="button" className="btn btn-danger" onClick={() => this.handleRemove(lecturerid)}><i class="fa fa-trash" aria-hidden="true"></i> </button>
         )

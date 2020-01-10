@@ -53,9 +53,8 @@ export default class Cameras extends Component {
                 this.setState({ statusgets: res.data });
             })
             .catch(error => {
-              console.log("====>",error.status);
-            //   console.log(dataUri);
-            //   console.log(this.props.classid);
+                console.log("====>",error.status);
+                alert("ไม่สามารถบันทึกซ้ำได้")
             });
           }
 
