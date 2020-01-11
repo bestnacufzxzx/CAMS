@@ -103,7 +103,7 @@ export default class EditImportteacher extends Component {
                                             <div className="col-sm-12">
                                                 <div class="col-md-4">
                                                     <div class="form-group input-group-sm">
-                                                        <label>ชื่อ</label>
+                                                        <label>คำนำหน้าชื่อ</label>
                                                         <input type="text" class="form-control" name="prefix" id="prefix" value={this.state.prefix} onChange={this.handleChange}/>
                                                     </div>
                                                 </div>

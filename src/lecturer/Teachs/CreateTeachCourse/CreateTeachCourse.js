@@ -177,31 +177,36 @@ export default class CreateTeachCourse extends Component {
         let date = this.state.startDate;
         let endcheck = this.state.endcheck;
         let startcheck = this.state.startcheck;
-        if (this.state.courseID == "เลือกห้องเรียน" ){
+
+        if (!this.state.roomID){
             alert("กรุณาเลือกห้องเรียน")
         }
-        event.preventDefault();
-        // let lecturerID = localStorage.getItem("lecturerID");
-        axios.post(service_uri+'lecturers/createclassbyTeachs', {
-    
-            // lecturerID : lecturerID,
-            courseID: this.state.courseID,
-            roomID: this.state.roomID,
-            starttime: this.changestarttime(startDate),
-            endtime: this.changeendtime(endDate),
-            startdate: this.changestartdate(date),
-            startcheck: this.changeendcheck(startcheck),
-            endcheck: this.changeendcheck(endcheck),
-            })
-            .then(res => {
+
+        // }else{
+            console.log(this.state.roomID)
+            event.preventDefault();
+            // let lecturerID = localStorage.getItem("lecturerID");
+            axios.post(service_uri+'lecturers/createclassbyTeachs', {
         
-            alert("บันทึกสำเร็จ")
-            this.RefreshPage();
-            })
-            .catch(error => {
-            console.log("====>",error.status);
-            alert("วันที่ซ้ำ")
-            });
+                // lecturerID : lecturerID,
+                courseID: this.state.courseID,
+                roomID: this.state.roomID,
+                starttime: this.changestarttime(startDate),
+                endtime: this.changeendtime(endDate),
+                startdate: this.changestartdate(date),
+                startcheck: this.changeendcheck(startcheck),
+                endcheck: this.changeendcheck(endcheck),
+                })
+                .then(res => {
+            
+                alert("บันทึกสำเร็จ")
+                this.RefreshPage();
+                })
+                .catch(error => {
+                console.log("====>",error.status);
+                alert("เวลาซ้ำ")
+                });
+        
     }
     RefreshPage=()=> { 
         window.location.href = 'http://localhost:3000/lecturer/Teachs/'+this.state.courseID; 
@@ -233,7 +238,7 @@ export default class CreateTeachCourse extends Component {
                                                 <div class="form-group input-group-sm">
                                                     <label for="roomname" type="text" class="col-form-label">ห้องเรียน</label>
                                                     <select name="roomID" class="form-control" onChange={this.handleChange}>
-                                                        <option>เลือกห้องเรียน</option>
+                                                        <option >เลือกห้องเรียน</option>
                                                         { this.state.allrooms.map((allroom,i) => (
                                                             <option value={allroom.roomID}>{allroom.roomname}</option>
                                                         )) }

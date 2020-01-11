@@ -13,16 +13,16 @@ export default class MenuBar extends Component {
             <section className="sidebar" >
               {/* Sidebar user panel */}
                 <div className="user-panel">
-                  <div className="pull-left image">
+                  {/* <div className="pull-left image">
                     <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
-                  </div>
-                  <div className="pull-left info">
+                  </div> */}
+                  {/* <div className="pull-left info">
                     <p>อักขระ เดช</p>
                     <a href="fake_url"><i className="fa fa-circle text-success" /> Online</a>
-                  </div>
+                  </div> */}
                 </div>
                 {/* search form */}
-                <form action="#" method="get" className="sidebar-form">
+                {/* <form action="#" method="get" className="sidebar-form">
                   <div className="input-group">
                     <input type="text" name="q" className="form-control" placeholder="Search..." />
                     <span className="input-group-btn">
@@ -31,7 +31,7 @@ export default class MenuBar extends Component {
                       </button>
                     </span>
                   </div>
-                </form>
+                </form> */}
                 {/* /.search form */}
                 {/* sidebar menu: : style can be found in sidebar.less */}
                  <ul className="sidebar-menu" data-widget="tree">

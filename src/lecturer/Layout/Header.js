@@ -1,20 +1,45 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default class Header extends Component {
     state = {
+        lecturerID:[],
         fName : '',
         lName : ''
     }
 
-    componentDidMount = () =>{
-        let fName = localStorage.getItem("firstName");
-        let lName = localStorage.getItem("lastName");
-        this.setState({
-            Fname:fName,
-            Lname:lName
-        })
-      }
+    handleChange = (event) => {
+        let nam = event.target.name;
+        let val = event.target.value;
+        this.setState({[nam]: val});
+        console.log(this.state)
+    }
+
+    componentWillMount () {
+        localStorage.setItem("user_id", '4');
+        let lecturerID = localStorage.getItem("lecturerID");
+        console.log(lecturerID );
+        axios.get('http://localhost/cams_server/api/admin_showuser/getBeforelecturerID?lecturerID='+lecturerID)
+            .then(response => {
+            const result = response.data.response;
+            result.forEach(element => {
+                if(element.lecturerID === lecturerID){
+                     this.setState({ 
+                        lecturerID : element.lecturerID,
+                        firstName : element.firstName,
+                        lastName :element.lastName,
+                    })
+                    console.log(this.state.firstName )
+                }
+            });
+    
+            })
+            .catch(error => {
+            });
+    
+    }
+
     render(){
         return(
             <div className>
@@ -38,18 +63,18 @@ export default class Header extends Component {
                         {/* User Account: style can be found in dropdown.less */}
                         <li className="dropdown user user-menu">
                             <a href="fake_url" className="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/dist/img/user2-160x160.jpg" className="user-image" alt="User" />
-                            <span className="hidden-xs">{this.state.Fname} {this.state.Lname}</span>
+                            {/* <img src="/dist/img/user2-160x160.jpg" className="user-image" alt="User" /> */}
+                            <span className="hidden-xs">{this.state.firstName} {this.state.lastName}</span>
                             </a>
                             <ul className="dropdown-menu">
                             {/* User image */}
-                            <li className="user-header">
-                                <img src="/dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
+                            {/* <li className="user-header"> */}
+                                {/* <img src="/dist/img/user2-160x160.jpg" className="img-circle" alt="User" /> */}
                                 {/* <p>
                                 Alexander Pierce - Web Developer
                                 <small>Member since Nov. 2012</small>
                                 </p> */}
-                            </li>
+                            {/* </li> */}
                             {/* Menu Body */}
                             {/* <li className="user-body">
                                 <div className="row">
@@ -68,7 +93,7 @@ export default class Header extends Component {
                             {/* Menu Footer*/}
                             <li className="user-footer">
                                 <div className="pull-left">
-                                <Link to="/student/Profile" >
+                                <Link to="/lecturer/Profile" >
                                     <button type="button" className="btn btn-default btn-flat" data-toggle="modal" data-target="#modal-default">ข้อมูลส่วนตัว</button>
                                 </Link>
                                 {/* <a href="fake_url" className="btn btn-default btn-flat">Profile</a> */}

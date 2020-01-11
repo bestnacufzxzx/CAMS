@@ -6,7 +6,7 @@ import Header from './auth/Layout/Header';
 import Footer from './auth/Layout/Footer';
 import Content from './auth/Layout/Content';
 
-import Auth from './auth/auth';
+// import Auth from './auth/auth';
 
 export default class auth extends Component {
 render(){
