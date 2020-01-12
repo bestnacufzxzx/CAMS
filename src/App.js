@@ -19,18 +19,18 @@ import { BrowserRouter, Route} from "react-router-dom";
 
 
 // page admin
-// import MenuBar from './admin/Layout/MenuBar';
-// import Header from './admin/Layout/Header';
-// import Footer from './admin/Layout/Footer';
-// import Content from './admin/Layout/Content';
+import MenuBar from './admin/Layout/MenuBar';
+import Header from './admin/Layout/Header';
+import Footer from './admin/Layout/Footer';
+import Content from './admin/Layout/Content';
 
 
 
 // page lecturer
-import MenuBar from './lecturer/Layout/MenuBar';
-import Header from './lecturer/Layout/Header';
-import Footer from './lecturer/Layout/Footer';
-import Content from './lecturer/Layout/Content';
+// import MenuBar from './lecturer/Layout/MenuBar';
+// import Header from './lecturer/Layout/Header';
+// import Footer from './lecturer/Layout/Footer';
+// import Content from './lecturer/Layout/Content';
 
 // page coursecoordinator
 // import MenuBar from './coursecoordinator/Layout/MenuBar';
@@ -58,46 +58,46 @@ import Content from './lecturer/Layout/Content';
 
 
 // page admin
-// import ShowCourse from './admin/course/ShowCourse';
-// import Updatacourse from './admin/course/Updatacourse';
-// import ImportCourse from './admin/course/ImportCourse';
-// import Showlocation from './admin/Setlocationmap/Showlocation';
-// import Editlocation from './admin/Setlocationmap/Editlocatonmap/Editlocation';
-// import Createlocation from './admin/Setlocationmap/Createlocation/Createlocation';
-// import Showimportteacher from './admin/Importteacher/Showimportteacher';
-// import Createimportteacher from './admin/Importteacher/importteacher/Createimportteacher';
-// import Showimportstudent from './admin/Importstudent/Showimportstudent';
-// import Createimportstudent from './admin/Importstudent/Importstudents/Createimportstudent';
-// import EditImportteacher from './admin/Importteacher/EditImportteacher/EditImportteacher';
-// import EditImportstudent from './admin/Importstudent/EditImportstudent/EditImportstudent';
-// import ShowAccountStudent from './admin/AccountStudent/ShowAccountStudent';
-// import CreateAccountStudent from './admin/AccountStudent/CreateAccountStudent/CreateAccountStudent';
-// import ShowAccountTeacher from './admin/AccountTeacher/ShowAccountTeacher';
-// import CreateAccountTeacher from './admin/AccountTeacher/CreateAccountTeacher/CreateAccountTeacher';
-// import EditAccountTeacher from './admin/AccountTeacher/EditAccountTeacher/EditAccountTeacher';
-// import EditAccountStudent from './admin/AccountStudent/EditAccountStudent/EditAccountStudent';
-// import Showteaching from './admin/course/Showteaching';
-// import Createteaching from './admin/course/Createteaching';
+import ShowCourse from './admin/Course/ShowCourse';
+import UpdataCourse from './admin/Course/UpdataCourse';
+import ImportCourse from './admin/Course/ImportCourse';
+import Showlocation from './admin/Setlocationmap/Showlocation';
+import Editlocation from './admin/Setlocationmap/Editlocatonmap/Editlocation';
+import Createlocation from './admin/Setlocationmap/Createlocation/Createlocation';
+import Showimportteacher from './admin/Importteacher/Showimportteacher';
+import Createimportteacher from './admin/Importteacher/importteacher/Createimportteacher';
+import Showimportstudent from './admin/Importstudent/Showimportstudent';
+import Createimportstudent from './admin/Importstudent/Importstudents/Createimportstudent';
+import EditImportteacher from './admin/Importteacher/EditImportteacher/EditImportteacher';
+import EditImportstudent from './admin/Importstudent/EditImportstudent/EditImportstudent';
+import ShowAccountStudent from './admin/AccountStudent/ShowAccountStudent';
+import CreateAccountStudent from './admin/AccountStudent/CreateAccountStudent/CreateAccountStudent';
+import ShowAccountTeacher from './admin/AccountTeacher/ShowAccountTeacher';
+import CreateAccountTeacher from './admin/AccountTeacher/CreateAccountTeacher/CreateAccountTeacher';
+import EditAccountTeacher from './admin/AccountTeacher/EditAccountTeacher/EditAccountTeacher';
+import EditAccountStudent from './admin/AccountStudent/EditAccountStudent/EditAccountStudent';
+import Showteaching from './admin/Course/Showteaching';
+import Createteaching from './admin/Course/Createteaching';
 
 
 // page lecturer
-import Attendancelocation from './lecturer/Attendancelocation/Attendancelocation';
-import Course from './lecturer/Course/Course';
-import CreateAttendencelocation from './lecturer/Attendancelocation/CreateAttendencelocation/CreateAttendencelocation';
-import EditCourse from './lecturer/Course/EditCourse/EditCourse';
-import CreateCourse from './lecturer/Course/CreateCourse/CreateCourse';
-import Timetreatment from './lecturer/Timetreatment/Timetreatment';
-import Profilelecturer from './lecturer/Profile/Profile';
-import Showhistorycourse from './lecturer/Showhistorycourse/Showhistorycourse';
-import Teachs from './lecturer/Teachs/Teachs';
-import Historysbystudent from './lecturer/Historysbystudent/Historysbystudent';
-import EditTeachCourse from './lecturer/Teachs/EditTeachCourse/EditTeachCourse';
-import CreateTeachCourse from './lecturer/Teachs/CreateTeachCourse/CreateTeachCourse';
-import Showstudentincourse from './lecturer/Studentincourse/Showstudentincourse';
-import Createstudentincourse from './lecturer/Studentincourse/Createstudentincourse';
-import Createstudent from './lecturer/Studentincourse/Createstudent';
-import Viewhistorystudent from './lecturer/Historysbystudent/Viewhistorystudent';
-import Profile from './lecturer/Profile/Profile';
+// import Attendancelocation from './lecturer/Attendancelocation/Attendancelocation';
+// import Course from './lecturer/Course/Course';
+// import CreateAttendencelocation from './lecturer/Attendancelocation/CreateAttendencelocation/CreateAttendencelocation';
+// import EditCourse from './lecturer/Course/EditCourse/EditCourse';
+// import CreateCourse from './lecturer/Course/CreateCourse/CreateCourse';
+// import Timetreatment from './lecturer/Timetreatment/Timetreatment';
+// import Profilelecturer from './lecturer/Profile/Profile';
+// import Showhistorycourse from './lecturer/Showhistorycourse/Showhistorycourse';
+// import Teachs from './lecturer/Teachs/Teachs';
+// import Historysbystudent from './lecturer/Historysbystudent/Historysbystudent';
+// import EditTeachCourse from './lecturer/Teachs/EditTeachCourse/EditTeachCourse';
+// import CreateTeachCourse from './lecturer/Teachs/CreateTeachCourse/CreateTeachCourse';
+// import Showstudentincourse from './lecturer/Studentincourse/Showstudentincourse';
+// import Createstudentincourse from './lecturer/Studentincourse/Createstudentincourse';
+// import Createstudent from './lecturer/Studentincourse/Createstudent';
+// import Viewhistorystudent from './lecturer/Historysbystudent/Viewhistorystudent';
+// import Profile from './lecturer/Profile/Profile';
 
 // page coursecoordinator
 // import CreateRegistrationlink from './coursecoordinator/CreateRegistrationlink/CreateRegistrationlink';
@@ -141,9 +141,9 @@ export default class App extends Component{
          
 
                                     {/* page admin*/}
-          {/* <Route exact path="/admin/ShowCourse" component={ShowCourse} />
-          <Route exact path="/admin/course/ImportCourse" component={ImportCourse} />
-          <Route exact path="/admin/course/Updatacourse" component={Updatacourse} />
+          <Route exact path="/admin/ShowCourse" component={ShowCourse} />
+          <Route exact path="/admin/Course/ImportCourse" component={ImportCourse} />
+          <Route exact path="/admin/Course/Updatacourse" component={UpdataCourse} />
           <Route exact path="/admin/Showlocation" component={Showlocation} />
           <Route exact path="/admin/Editlocation/:buildingID" component={Editlocation} />
           <Route exact path="/admin/Createlocation" component={Createlocation} />
@@ -160,14 +160,14 @@ export default class App extends Component{
           <Route exact path="/admin/EditAccountTeacher/:user_id" component={EditAccountTeacher} />
           <Route exact path="/admin/EditAccountStudent/:user_id" component={EditAccountStudent} />
           <Route exact path="/admin/Showteaching/:courseID" component={Showteaching} />
-          <Route exact path="/admin/Createteaching/:courseID/" component={Createteaching} /> */}
+          <Route exact path="/admin/Createteaching/:courseID/" component={Createteaching} />
 
 
 
 
 
                                     {/* page lecturer*/}
-          <Route exact path="/lecturer/Attendancelocation" component={Attendancelocation} />
+          {/* <Route exact path="/lecturer/Attendancelocation" component={Attendancelocation} />
           <Route exact path="/lecturer/Course" component={Course} />
           <Route exact path="/lecturer/CreateAttendencelocation" component={CreateAttendencelocation} />
           <Route exact path="/lecturer/EditCourse/:teachingID" component={EditCourse} />
@@ -183,7 +183,7 @@ export default class App extends Component{
           <Route exact path="/lecturer/Createstudentincourse/:courseID" component={Createstudentincourse} /> 
           <Route exact path="/lecturer/Createstudent/:courseID" component={Createstudent} /> 
           <Route exact path="/lecturer/Viewhistorystudent/:studentID/:courseID" component={Viewhistorystudent} /> 
-          <Route exact path="/lecturer/Profile" component={Profile} /> 
+          <Route exact path="/lecturer/Profile" component={Profile} />  */}
 
 
           
