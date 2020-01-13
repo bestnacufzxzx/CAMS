@@ -2,7 +2,7 @@
 // import Breadcrumb from '../../components/Breadcrumb';
 
 
-// export default class UpdataCourse extends Component {
+// export default class Updatacourse extends Component {
  
 //     render() {
 //         return (

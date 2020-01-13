@@ -3,15 +3,14 @@ import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import service_uri from '../../components/variable/service_uri';
+import baseurl from '../../auth/Baseurl';
 
 export default class ShowCourse extends Component {
     state = {
         courses: []
     }
-
     renderviewteaching(course){
         let courseID = course.courseID;
-
         return(
             <Link to={'Showteaching/'+courseID}>
                 &nbsp; <button type="button" className="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"> </i> </button>&nbsp;
@@ -46,7 +45,7 @@ export default class ShowCourse extends Component {
         script.async = true;
         document.body.appendChild(script);
 
-        axios.get('http://localhost/cams_server/api/Admin_showcourse/get_all_courses')
+        axios.get(baseurl+'api/Admin_showcourse/get_all_courses')
         .then(response => {
           this.setState({ courses: response.data });
         })
@@ -58,13 +57,11 @@ export default class ShowCourse extends Component {
     render(){
         return(
             <div className="content-wrapper">
-                <Breadcrumb header="จัดการรายวิชา" subheader="ค้นหา" arrow={
+                <Breadcrumb header="จัดการรายวิชา" subheader="" arrow={
                     [
-                        {"icon":"fa fa-dashboard", "title":"นำเข้ารายวิชา", "link":"#", "active":"active"}
+                        // {"icon":"fa fa-dashboard", "title":"นำเข้ารายวิชา", "link":"#", "active":"active"}
                     ]
                 } />
-
-                
                 <div className="content body">
                     <div class="row">
                         <div class="col-md-12">
@@ -72,10 +69,6 @@ export default class ShowCourse extends Component {
                                 <div class="box-header">
                                     <div className="row">
                                         <div className="col-md-10">
-                                            {/* <div className="input-group">
-                                                <input type="text" className="form-control" />
-                                                <span className="input-group-addon"><i className="fa fa-search" aria-hidden="true"></i></span>
-                                            </div> */}
                                         </div>
                                         <div className="col-md-2">
                                             <Link to="/admin/course/ImportCourse">
@@ -100,8 +93,6 @@ export default class ShowCourse extends Component {
                                                         <th className="" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ลำดับ.</th>
                                                         <th className="sorting_asc" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">รหัสวิชา</th>
                                                         <th className="sorting" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CourseName: activate to sort column ascending">ชื่อรายวิชา</th>
-                                                        {/* <th className="sorting" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="Term: activate to sort column ascending">หน่วยกิต</th> */}
-                                                        {/* <th className="sorting" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th> */}
                                                         <th className="" tabIndex="0" aria-controls="example2" rowSpan="1" colSpan="1" aria-label="CSS grade: activate to sort column ascending">การจัดการ</th>
                                                     </tr>
                                                 </thead>
